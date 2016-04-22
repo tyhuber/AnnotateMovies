@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" RenameBy="None">
+  <Settings Path="C:\Users\Ty\Documents\Downloads\To Watch\Test'" Overwrite="false" Test="true">
+    <MetaCritic Add="true" Use="true"/>
+	<Weights Imdb=".3" RtFresh=".3" MetaCritic=".3" RtRating=".1"/>
+  </Settings>
+  <Top>
+    <Property>Genre</Property>
+    <Property>Score</Property>
+    <Property>Plot</Property>
+    <Property>Director</Property>
+    <Property>Actors</Property>
+    <Property>Language</Property>
+    <Property>Awards</Property>
+  </Top>
+  <Ignore>
+    <Property>Title</Property>
+    <Property>Year</Property>
+    <Property>Runtime</Property>
+    <Property>Metascore</Property>
+    <Property>imdbRating</Property>
+    <Property>imdbID</Property>
+    <Property>tomatoMeter</Property>
+    <Property>tomatoRating</Property>
+    <Property>StdImdbRating,</Property>
+    <Property>StdRtMeter</Property>
+    <Property>StdRtRating</Property>
+    <Property>StdRtUserMeter</Property>
+    <Property>StdRtUserRating</Property>
+    <Property>Rank</Property>
+  </Ignore>
+  <Name>
+    <string>Audio Books</string>
+    <string>ebooks</string>
+    <string>Documentaries</string>
+    <string>TV</string>
+    <string>Test</string>
+	<string>_incomplete</string>
+  </Name>
+</Config>

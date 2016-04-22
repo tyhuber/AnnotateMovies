@@ -1,0 +1,193 @@
+[MESSAGE][4/19/2016 10:07:19 PM] [Program.Main ln 22] - Beginning annotation script
+[MESSAGE][4/19/2016 10:07:19 PM] [Program.Main ln 33] - Config settings:
+Settings: Path: C:\Users\Ty\Documents\Downloads\To Watch
+Overwrite: False
+Top:
+  -Genre
+  -Score
+  -Plot
+  -Director
+  -Actors
+  -Language
+  -Awards
+Ignore:
+  -Title
+  -Year
+  -Runtime
+  -Metascore
+  -imdbRating
+  -imdbID
+  -tomatoMeter
+  -tomatoRating
+  -StdImdbRating,
+  -StdRtMeter
+  -StdRtRating
+  -StdRtUserMeter
+  -StdRtUserRating
+  -Rank
+RenameBy: None
+IgnoreDirectoires:
+  -Audio Books
+  -ebooks
+  -Documentaries
+  -TV
+  -Test
+  -_incomplete
+[MESSAGE][4/19/2016 10:07:19 PM] [FileInfoExtensions.IsVideo ln 28] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\Audio Books.lnk is .lnk
+[MESSAGE][4/19/2016 10:07:19 PM] [FileInfoExtensions.IsVideo ln 28] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\Documentaries.lnk is .lnk
+[MESSAGE][4/19/2016 10:07:19 PM] [FileInfoExtensions.IsVideo ln 28] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\ebooks.lnk is .lnk
+[MESSAGE][4/19/2016 10:07:19 PM] [FileInfoExtensions.IsVideo ln 28] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\Movies.lnk is .lnk
+[MESSAGE][4/19/2016 10:07:19 PM] [FileInfoExtensions.IsVideo ln 28] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\OverallTopDocs.xlsx is .xlsx
+[MESSAGE][4/19/2016 10:07:19 PM] [FileInfoExtensions.IsVideo ln 28] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\OverallTopDocsCsv.csv is .csv
+[MESSAGE][4/19/2016 10:07:19 PM] [FileInfoExtensions.IsVideo ln 28] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\OverallTopDocs_Resort.xlsx is .xlsx
+[MESSAGE][4/19/2016 10:07:19 PM] [FileInfoExtensions.IsVideo ln 28] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\OverallTopMovies.xlsx is .xlsx
+[MESSAGE][4/19/2016 10:07:19 PM] [FileInfoExtensions.IsVideo ln 28] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\TV.lnk is .lnk
+[MESSAGE][4/19/2016 10:07:19 PM] [FileInfoExtensions.IsVideo ln 28] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\~$OverallTopDocs_Resort.xlsx is .xlsx
+[MESSAGE][4/19/2016 10:07:19 PM] [FileInfoExtensions.IsVideo ln 28] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\~$OverallTopMovies.xlsx is .xlsx
+[MESSAGE][4/19/2016 10:07:19 PM] [DirectoryInfoExtensions.GetMovieName ln 28] - Attempting to get movie name for Ghandi (1982) [03-11-14]
+[MESSAGE][4/19/2016 10:07:19 PM] [DirectoryInfoExtensions.GetFirstRegexMatch ln 168] - First regex match is Year at index 7
+[MESSAGE][4/19/2016 10:07:19 PM] [DirectoryInfoExtensions.GetMovieName ln 38] - Got movie name Ghandi  for Ghandi (1982) [03-11-14]
+[MESSAGE][4/19/2016 10:07:20 PM] [OmdbSearch.Query ln 27] -  (). Score = 0
+Std:
+  IMDB:
+	Rating=0
+  Rotten Tomatoes:
+	Meter=
+	Rating=
+[ERROR][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Search ln 118] - Unable to get omdb result for Ghandi (1982) [03-11-14]
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 28] - Attempting to get movie name for Ghandi (1982) [03-11-14]
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetFirstRegexMatch ln 168] - First regex match is Year at index 7
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 38] - Got movie name Ghandi  for Ghandi (1982) [03-11-14]
+[MESSAGE][4/19/2016 10:07:20 PM] [OmdbSearch.Query ln 27] -  (). Score = 0
+Std:
+  IMDB:
+	Rating=0
+  Rotten Tomatoes:
+	Meter=
+	Rating=
+[ERROR][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Search ln 118] - Unable to get omdb result for Ghandi (1982) [03-11-14]
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 28] - Attempting to get movie name for Kiki's Delivery Service (1989) BRrip 1080P x264 MP4 - Ofek
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetFirstRegexMatch ln 168] - First regex match is Year at index 24
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 38] - Got movie name Kiki's Delivery Service  for Kiki's Delivery Service (1989) BRrip 1080P x264 MP4 - Ofek
+[MESSAGE][4/19/2016 10:07:20 PM] [OmdbSearch.Query ln 27] - Kiki's Delivery Service (1989). Score = 79
+Std:
+  IMDB:
+	Rating=79
+  Rotten Tomatoes:
+	Meter=
+	Rating=
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Search ln 121] - For dir Kiki's Delivery Service (1989) BRrip 1080P x264 MP4 - Ofek OMDB result = Kiki's Delivery Service (1989). Score = 79
+Std:
+  IMDB:
+	Rating=79
+  Rotten Tomatoes:
+	Meter=
+	Rating= 
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Rename ln 55] - For Kiki's Delivery Service (1989) BRrip 1080P x264 MP4 - Ofek, new name = Kiki's Delivery Service (1989) [103 min] IMDB-7.9 RT-N/A% (N/A)
+[CAUGHT EXCEPTION][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Rename ln 62] - Could not find a part of the path.
+[Stack Trace][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Rename ln 62] -    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.DirectoryInfo.MoveTo(String destDirName)
+   at AnnotateMovieDirectories.Extensions.DirectoryInfoExtensions.Rename(DirectoryInfo dir) in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Extensions\DirectoryInfoExtensions.cs:line 58
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.WriteInfoToFile ln 90] - C:\Users\Ty\Documents\Downloads\To Watch\Kiki's Delivery Service (1989) BRrip 1080P x264 MP4 - Ofek\MovieInfo.txt already exists. Will not overwrite.
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 28] - Attempting to get movie name for Kiki's Delivery Service (1989) BRrip 1080P x264 MP4 - Ofek
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetFirstRegexMatch ln 168] - First regex match is Year at index 24
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 38] - Got movie name Kiki's Delivery Service  for Kiki's Delivery Service (1989) BRrip 1080P x264 MP4 - Ofek
+[MESSAGE][4/19/2016 10:07:20 PM] [OmdbSearch.Query ln 27] - Kiki's Delivery Service (1989). Score = 79
+Std:
+  IMDB:
+	Rating=79
+  Rotten Tomatoes:
+	Meter=
+	Rating=
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Search ln 121] - For dir Kiki's Delivery Service (1989) BRrip 1080P x264 MP4 - Ofek OMDB result = Kiki's Delivery Service (1989). Score = 79
+Std:
+  IMDB:
+	Rating=79
+  Rotten Tomatoes:
+	Meter=
+	Rating= 
+[MESSAGE][4/19/2016 10:07:20 PM] [OmdbResult.WritePlotToFile ln 118] - C:\Users\Ty\Documents\Downloads\To Watch\Kiki's Delivery Service (1989) BRrip 1080P x264 MP4 - Ofek\MovieInfo.txt already exists. Won't write to file.
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 28] - Attempting to get movie name for Nathan For You
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetFirstRegexMatch ln 168] - First regex match is NoMatch at index -1
+[ERROR][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Search ln 111] - Could not get movie name for Nathan For You
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 28] - Attempting to get movie name for Nathan For You
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetFirstRegexMatch ln 168] - First regex match is NoMatch at index -1
+[ERROR][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Search ln 111] - Could not get movie name for Nathan For You
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 28] - Attempting to get movie name for Solaris
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetFirstRegexMatch ln 168] - First regex match is NoMatch at index -1
+[ERROR][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Search ln 111] - Could not get movie name for Solaris
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 28] - Attempting to get movie name for Solaris
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetFirstRegexMatch ln 168] - First regex match is NoMatch at index -1
+[ERROR][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Search ln 111] - Could not get movie name for Solaris
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 28] - Attempting to get movie name for Test'
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetFirstRegexMatch ln 168] - First regex match is NoMatch at index -1
+[ERROR][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Search ln 111] - Could not get movie name for Test'
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 28] - Attempting to get movie name for Test'
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetFirstRegexMatch ln 168] - First regex match is NoMatch at index -1
+[ERROR][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Search ln 111] - Could not get movie name for Test'
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 28] - Attempting to get movie name for The.King.of.Kong.2007.720p.WEB-DL.H264-CtrlHD [PublicHD]
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetFirstRegexMatch ln 168] - First regex match is Year at index 17
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 38] - Got movie name The King of Kong  for The.King.of.Kong.2007.720p.WEB-DL.H264-CtrlHD [PublicHD]
+[MESSAGE][4/19/2016 10:07:20 PM] [OmdbSearch.Query ln 27] - The King of Kong: A Fistful of Quarters (2007). Score = 86.3
+Std:
+  IMDB:
+	Rating=82
+  Rotten Tomatoes:
+	Meter=97
+	Rating=81
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Search ln 121] - For dir The.King.of.Kong.2007.720p.WEB-DL.H264-CtrlHD [PublicHD] OMDB result = The King of Kong: A Fistful of Quarters (2007). Score = 86.3
+Std:
+  IMDB:
+	Rating=82
+  Rotten Tomatoes:
+	Meter=97
+	Rating=81 
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Rename ln 55] - For The.King.of.Kong.2007.720p.WEB-DL.H264-CtrlHD [PublicHD], new name = The King of Kong: A Fistful of Quarters (2007) [79 min] IMDB-8.2 RT-97% (8.1)
+[CAUGHT EXCEPTION][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Rename ln 62] - The given path's format is not supported.
+[Stack Trace][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Rename ln 62] -    at System.Security.Util.StringExpressionSet.CanonicalizePath(String path, Boolean needFullPath)
+   at System.Security.Util.StringExpressionSet.CreateListFromExpressions(String[] str, Boolean needFullPath)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.IO.DirectoryInfo.MoveTo(String destDirName)
+   at AnnotateMovieDirectories.Extensions.DirectoryInfoExtensions.Rename(DirectoryInfo dir) in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Extensions\DirectoryInfoExtensions.cs:line 58
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 28] - Attempting to get movie name for The.King.of.Kong.2007.720p.WEB-DL.H264-CtrlHD [PublicHD]
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetFirstRegexMatch ln 168] - First regex match is Year at index 17
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.GetMovieName ln 38] - Got movie name The King of Kong  for The.King.of.Kong.2007.720p.WEB-DL.H264-CtrlHD [PublicHD]
+[MESSAGE][4/19/2016 10:07:20 PM] [OmdbSearch.Query ln 27] - The King of Kong: A Fistful of Quarters (2007). Score = 86.3
+Std:
+  IMDB:
+	Rating=82
+  Rotten Tomatoes:
+	Meter=97
+	Rating=81
+[MESSAGE][4/19/2016 10:07:20 PM] [DirectoryInfoExtensions.Search ln 121] - For dir The.King.of.Kong.2007.720p.WEB-DL.H264-CtrlHD [PublicHD] OMDB result = The King of Kong: A Fistful of Quarters (2007). Score = 86.3
+Std:
+  IMDB:
+	Rating=82
+  Rotten Tomatoes:
+	Meter=97
+	Rating=81 
+[MESSAGE][4/19/2016 10:07:20 PM] [OmdbResult.WritePlotToFile ln 167] - Got the following top property values:
+Genre: Documentary, Biography, Sport
+Director: Seth Gordon
+Plot: In the early 1980s, legendary Billy Mitchell set a Donkey Kong record that stood for almost 25 years. This documentary follows the assault on the record by Steve Wiebe, an earnest teacher from Washington who took up the game while unemployed. The top scores are monitored by a cadre of players and fans associated with Walter Day, an Iowan who runs Funspot, an annual tournament. Wiebe breaks Mitchell's record in public at Funspot, and Mitchell promptly mails a controversial video tape of himself setting a new record. So Wiebe travels to Florida hoping Mitchell will face him for the 2007 Guinness World Records. Will the mind-game-playing Mitchell engage; who will end up holding the record?
+Actors: Steve Wiebe, Mark Alpiger, Adam Wood, Walter Day
+Language: English
+Awards: 9 wins & 10 nominations.
+Score: 86.3
+[MESSAGE][4/19/2016 10:07:20 PM] [OmdbResult.WritePlotToFile ln 177] - Writing values to file:
+Genre: Documentary, Biography, Sport
+Director: Seth Gordon
+Plot: In the early 1980s, legendary Billy Mitchell set a Donkey Kong record that stood for almost 25 years. This documentary follows the assault on the record by Steve Wiebe, an earnest teacher from Washington who took up the game while unemployed. The top scores are monitored by a cadre of players and fans associated with Walter Day, an Iowan who runs Funspot, an annual tournament. Wiebe breaks Mitchell's record in public at Funspot, and Mitchell promptly mails a controversial video tape of himself setting a new record. So Wiebe travels to Florida hoping Mitchell will face him for the 2007 Guinness World Records. Will the mind-game-playing Mitchell engage; who will end up holding the record?
+Actors: Steve Wiebe, Mark Alpiger, Adam Wood, Walter Day
+Language: English
+Awards: 9 wins & 10 nominations.
+Score: 86.3
+
+tomatoUserMeter: 93
+tomatoUserRating: 4.2
+Writer: Seth Gordon
+Country: USA
+tomatoURL: http://www.rottentomatoes.com/m/king_of_kong/
+StdImdbRating: 82
+ImdbLink: http://www.imdb.com/title/tt0052520/tt0923752
