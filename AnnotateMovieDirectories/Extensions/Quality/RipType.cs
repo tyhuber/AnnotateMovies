@@ -1,4 +1,4 @@
-﻿namespace AnnotateMovieDirectories.Extensions
+﻿namespace AnnotateMovieDirectories.Extensions.Quality
 {
     public enum RipType
     {

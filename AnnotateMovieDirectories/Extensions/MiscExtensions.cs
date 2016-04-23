@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
+using AnnotateMovieDirectories.Attributes;
 using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Logging;
 using AnnotateMovieDirectories.Omdb.Metacritic;
-using AnnotateMovieDirectories.Tools;
 
 namespace AnnotateMovieDirectories.Extensions
 {
@@ -32,14 +33,14 @@ namespace AnnotateMovieDirectories.Extensions
 
         public static bool TryGetMeta(this string name, string year, out double tmp)
         {
-            string ratingString = Omdb.Metacritic.Meta.Query(name, year);
+            string ratingString = Meta.Query(name, year);
             tmp = 0;
-            if (String.IsNullOrWhiteSpace(ratingString))
+            if (string.IsNullOrWhiteSpace(ratingString))
             {
                 Error($"Could not get meta rating for {name} ({year})");
                 return false;
             }
-            if (!Double.TryParse(ratingString, out tmp))
+            if (!double.TryParse(ratingString, out tmp))
             {
                 Error($"Unable to parse meta rating string {ratingString}");
                 return false;
@@ -53,7 +54,13 @@ namespace AnnotateMovieDirectories.Extensions
             return s.Replace(pattern, replace);
         }
 
-        public static bool GetWeightedRating(this RatingType type, Movie mov, out double rating)
+
+        public static double Round(this double d, int decimals = 1)
+        {
+            return Math.Round(d, decimals);
+        }
+
+      /*  public static bool GetWeightedRating(this RatingType type, Movie mov, out double rating)
         {
             Log($"Getting weighted rating for type {type} of movie {mov.Title}");
             rating = 0;
@@ -88,7 +95,7 @@ namespace AnnotateMovieDirectories.Extensions
                 Error(ex);
                 return false;
             }
-        }
+        }*/
 
         public static bool IsZero(this double dbl)
         {

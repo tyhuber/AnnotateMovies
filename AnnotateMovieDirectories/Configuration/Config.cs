@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using AnnotateMovieDirectories.Extensions;
 using AnnotateMovieDirectories.Logging;
-using AnnotateMovieDirectories.Tools;
+using AnnotateMovieDirectories.MovieRatings;
 
 namespace AnnotateMovieDirectories.Configuration
 {
@@ -19,7 +19,7 @@ namespace AnnotateMovieDirectories.Configuration
         public string Path => Settings.Path;
 
         [XmlIgnore]
-        public bool Overwrite => Settings.Overwrite;
+        public bool Overwrite => Settings.OverwriteMovieInfo;
         [XmlElement]
         public Settings Settings { get; set; }
         [XmlArrayItem("Property")]

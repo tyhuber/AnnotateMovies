@@ -9,7 +9,11 @@ namespace AnnotateMovieDirectories.Logging
         private static StreamWriter Writer { get; set; }
         private static StreamWriter EWriter { get; set; }
         private static string LogPath { get; set; }
-        private static string ErrorPath { get; set; }
+        private static string ErrorPath => LogPath.Replace(Path.GetFileName(LogPath), "ErrorLog.txt");
+
+        private static string WarningPath => LogPath.Replace(Path.GetFileName(LogPath),"WarningLog.txt");
+
+        public static bool EncounteredError { get; set; }
 
         private static bool WriterNull
         {
@@ -20,143 +24,176 @@ namespace AnnotateMovieDirectories.Logging
                 return true;
             }
         }
-
-        /*
-        private static void Log(string s, [CallerMemberName] string name = "", [CallerLineNumber] int ln = 0, [CallerFilePath] string path = "")
-        {
-            Logger.BLog(s, name, path, ln);
-        }
-
-        private static void Error(string s, [CallerMemberName] string name = "", [CallerLineNumber] int ln = 0,
-            [CallerFilePath] string path = "")
-        {
-            Logger.BError(s, name, path, ln);
-        }
-
-        private static void Error(Exception ex, [CallerMemberName] string name = "",
-            [CallerLineNumber] int ln = 0,
-            [CallerFilePath] string path = "")
-        {
-            Logger.BError(ex, name, path, ln);
-        }
-        */
-
         public static void Init(string logPath)
         {
             LogPath = logPath;
-            ErrorPath = Path.Combine(Path.GetDirectoryName(logPath), $"Error{Path.GetFileName(logPath)}");
-            Writer = new StreamWriter(LogPath);
+            if(File.Exists(LogPath))File.Delete(LogPath);
+            if(File.Exists(ErrorPath))File.Delete(ErrorPath);
+            if(File.Exists(WarningPath))File.Delete(WarningPath);
+//            Writer = new StreamWriter(LogPath);
         }
 
         public static void Log(string s, [CallerMemberName] string name = "",
             [CallerFilePath] string path = "", [CallerLineNumber] int ln = 0)
         {
             string msg = GetMsg(s, name, path, ln, LogType.Message);
-            Console.WriteLine(msg);
-            SafeLog(msg);
+            SWrite(msg, LogType.Message);
+            /*Console.WriteLine(msg);
+            SafeLog(msg);*/
         }
 
         public static void BLog(string s, string name, string path, int ln, LogType lt = LogType.Message)
         {
             string msg = GetMsg(s, name, path, ln, LogType.Message);
-            Console.WriteLine(msg);
-            if (WriterNull) return;
-            Writer.WriteLine(msg);
-            Writer.Flush();
+            SWrite(msg, LogType.Message);
+            /* Console.WriteLine(msg);
+             using (Writer = new StreamWriter(LogPath,true))
+             {
+                 Writer.WriteLine(msg);
+                 Writer.Flush();
+             }*/
         }
 
-        public static void BLog(string msg)
+        private static void SWrite(string msg, LogType lt)
         {
+            using (var writer = new StreamWriter(lt.GetPath(),true))
+            {
+                writer.WriteLine(msg);
+//                writer.Flush();
+                writer.Close();
+            }
+        }
+
+        public static void BLog(string msg, bool err = false)
+        {
+            if (err)
+            {
+                WriteConsoleError(msg);
+            }
+            else
+            {
+                Console.WriteLine(msg);
+            }
+            SWrite(msg,LogType.Message);
+            /*using(Writer = new StreamWriter(LogPath,true))
+            {
+                Writer.WriteLine(msg);
+                Writer.Flush();
+            }*/
+        }
+
+        private static void WriteConsoleError(string msg)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(msg);
-            if (WriterNull) return;
-            Writer.WriteLine(msg);
-            Writer.Flush();
+            Console.ResetColor();
         }
 
         public static void BError(string s, string name, string path, int ln)
         {
             string msg = GetMsg(s, name, path, ln, LogType.Error);
-            SafeLog(msg);
-            SafeError(msg);
+            SWrite(msg, LogType.Error);
+            /*SafeLog(msg,true);
+            SafeError(msg);*/
         }
 
         public static void BError(Exception ex, string name, string path, int ln)
         {
             string msg = GetMsg(ex.Message, name, path, ln, LogType.Exception);
             string stack = GetMsg(ex.StackTrace, name, path, ln, LogType.StackTrace);
-
-            SafeLog(msg);
-            SafeLog(stack);
+            SWrite(msg, LogType.Error);
+            SWrite(msg, LogType.EMsg);
+            SWrite(stack, LogType.Error);
+            SWrite(stack, LogType.EMsg);
+            /*SafeLog(msg,true);
+            SafeLog(stack,true);
             SafeError(msg);
-            SafeError(stack);
+            SafeError(stack);*/
         }
 
         public static void Error(string s, [CallerMemberName] string name = "",
             [CallerFilePath] string path = "", [CallerLineNumber] int ln = 0)
         {
             string msg = GetMsg(s, name, path, ln, LogType.Error);
-            Console.WriteLine(msg);
-            SafeLog(msg);
-            SafeError(msg);
+            SWrite(msg, LogType.Error);
+            SWrite(msg, LogType.EMsg);
+            /*Console.WriteLine(msg);
+            SafeLog(msg,true);
+            SafeError(msg);*/
         }
 
         public static void Error(Exception ex, [CallerMemberName] string name = "",
             [CallerFilePath] string path = "", [CallerLineNumber] int ln = 0)
         {
             string msg = GetMsg(ex.Message, name, path, ln, LogType.Exception);
-            Console.WriteLine(msg);
-            SafeLog(msg);
             string stack = GetMsg(ex.StackTrace, name, path, ln, LogType.StackTrace);
-            SafeLog(stack);
+                        
+            SWrite(msg, LogType.Error);
+            SWrite(msg, LogType.EMsg);            
+            SWrite(stack, LogType.Error);
+            SWrite(stack, LogType.EMsg);
+
+            /*Console.WriteLine(msg);
+            SafeLog(msg, true);
+            SafeLog(stack,true);
             SafeError(msg);
-            SafeError(stack);
+            SafeError(stack);*/
         }
 
         private static void SafeLog(string s, string name, string path, int ln, LogType lt = LogType.Blank)
         {
-            if (!WriterNull)
-            {
-                BLog(s, name, path, ln, lt);
-            }
+            BLog(s, name, path, ln, lt);
         }
 
-        private static void SafeLog(string msg)
+        private static void SafeLog(string msg, bool error = false)
         {
-            if (!WriterNull)
-            {
-                BLog(msg);
-            }
+            SWrite(msg,LogType.Error);
+            SWrite(msg,LogType.EMsg);
+            BLog(msg,error);
         }
 
         private static void SafeError(string msg)
         {
-            using (EWriter = new StreamWriter(ErrorPath, true))
+            /*using (EWriter = new StreamWriter(ErrorPath, true))
             {
                 EWriter.WriteLine(msg);
                 EWriter.Flush();
-            }
+            }*/
         }
 
 
 
         private static string GetMsg(string s, string name, string path, int ln, LogType lType = LogType.Blank)
         {
+            if (lType == LogType.Error || lType == LogType.Exception || lType == LogType.StackTrace)
+            {
+                EncounteredError = true;
+            }
             string append =
                 $"{lType.Str()}[{DateTime.Now}] [{Path.GetFileNameWithoutExtension(path)}.{name} ln {ln}] - ";
             string msg = $"{append}{s}";
+            if (lType == LogType.Error || lType == LogType.Exception || lType == LogType.StackTrace)
+            {
+                WriteConsoleError(msg);
+            }
+            else
+            {
+                Console.WriteLine(msg);
+            }
             return msg;
         }
 
-        public static void Dispose()
-        {
-            Writer.Flush();
-            Writer.Close();
-            Writer.Dispose();
-        }
+//        public static void Dispose()
+//        {
+//            Writer.Flush();
+//            Writer.Close();
+//            Writer.Dispose();
+//        }
 
         public enum LogType
         {
             Message,
+            EMsg,
             Warning,
             Error,
             Exception,
@@ -174,10 +211,35 @@ namespace AnnotateMovieDirectories.Logging
                     return "[Stack Trace]";
                 case LogType.Exception:
                     return "[CAUGHT EXCEPTION]";
+                case LogType.EMsg:
+                    return "[ERROR]";
                 default:
                     return $"[{l.ToString().ToUpper()}]";
             }
 
+        }
+
+        private static string GetPath(this LogType l)
+        {
+            switch (l)
+            {
+                case LogType.Message:
+                    return LogPath;
+                case LogType.Warning:
+                    return WarningPath;
+                case LogType.Error:
+                    return ErrorPath;
+                case LogType.Exception:
+                    return ErrorPath;
+                case LogType.StackTrace:
+                    return ErrorPath;
+                case LogType.Blank:
+                    return LogPath;
+                case LogType.EMsg:
+                    return LogPath;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(l), l, null);
+            }
         }
     }
 }

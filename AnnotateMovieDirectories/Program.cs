@@ -7,25 +7,32 @@ using System.Text;
 using System.Threading.Tasks;
 using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Extensions;
+using AnnotateMovieDirectories.Extensions.DirInfo;
 using AnnotateMovieDirectories.Logging;
+using AnnotateMovieDirectories.Movies;
 using AnnotateMovieDirectories.Omdb.Metacritic;
 
 namespace AnnotateMovieDirectories
 {
     class Program
     {
-        public const string ConfigPath = "Config.xml";
+        public const string ConfigPath = @"C:\Users\Ty\Documents\Downloads\To Watch\AnnotateConfig.xml";
+        public const string BackupConfigPath = "Config.xml";
         private const string DownloadPath = @"C:\Users\Ty\Documents\Downloads\To Watch";
         private static readonly DirectoryInfo DownloadDir = new DirectoryInfo(DownloadPath);
-        private static DirectoryInfo MainDir => new DirectoryInfo(Cfg.Config.Path);
+        public static Random Rand => new Random();
 
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             Logger.Init("Log.txt");
             Log($"Beginning annotation script");
             if (!File.Exists(ConfigPath))
             {
-                Log($"Config does not exist. Creating default config.");
+                Error($"Config does not exist. Creating default config.");
+                if (File.Exists(BackupConfigPath))
+                {
+                    Cfg.Deserialize(BackupConfigPath);
+                }
                 Cfg.SetDefault();
             }
             else
@@ -36,104 +43,32 @@ namespace AnnotateMovieDirectories
             {
                 CreateTestDir();
             }
-            GetRatingsAndRename();
-
-//            Cfg.Serialize(ConfigPath);
-            Logger.Dispose();
+            Annotater.GetRatingsAndRename();
+            if (Logger.EncounteredError)
+            {
+                Console.ForegroundColor=ConsoleColor.Red;
+                Console.Error.WriteLine($"Encountered error while running");
+                Console.ResetColor();
+                return 1;
+            }
+//            Logger.Dispose();
             Console.ReadLine();
+            return 0;
 
         }
 
         private static void CreateTestDir(bool delete = true)
         {
-            Log($"Create Test Dir Set to true. Creating empty folders from {DownloadPath} in {MainDir.FullName}");
-            
+            Log($"Create Test Dir Set to true. Creating empty folders from {DownloadPath} in {Annotater.MainDir.FullName}");
             if (delete)
             {
-                MainDir.Delete(true);
+                Annotater.MainDir.Delete(true);
             }
             var movs = DownloadDir.EnumerateVideoDirectories();
-            Log($"Creating {movs.Count()} empty movie folders in {MainDir.FullName}");
+            Log($"Creating {movs.Count()} empty movie folders in {Annotater.MainDir.FullName}");
             foreach (var mov in movs)
             {
-                mov.CreateEmptyDir(MainDir);
-            }
-        }
-
-        private static void GetRatingsAndRename()
-        {
-            Log($"Config settings:\n{Cfg.Config}");
-            if (Cfg.Config.Rename)
-            {
-                var dirs = MainDir.GetDirectories("*IMDB*");
-                foreach (var dir in dirs)
-                {
-                    dir.SortByName();
-                }
-            }
-            else
-            {
-                RenameAndWriteInfo();
-                if (Cfg.Config.Settings.MetaCritic.Add)
-                {
-                    var movies = new DirectoryInfo(Cfg.Config.Path).EnumerateMovies();
-                    foreach (var m in movies)
-                    {
-                        Log($"{m.Title} - Score = {m.Score}. Meta = {m.MetaCritic}");
-                    }
-                }
-            }
-            
-            
-                
-                //todo logic here
-
-                /*var dirs = new DirectoryInfo(Cfg.Config.Path).GetDirectories("*IMDB*");
-                foreach (var MainDir in dirs)
-                {
-                    string rat;
-                    if (MainDir.Meta(out rat))
-                    {
-                        Log($"Got meta rating {rat}");
-                    }
-                }*/
-//            }
-        }
-
-        private static void RenameAndWriteInfo()
-        {
-
-            CreateDirectoriesForVideoFiles();
-            var dirs = MainDir.EnumerateMovieDirectories();
-            if (!dirs.Any())
-            {
-                Log($"All subdirectories in {MainDir.FullName} have been already annotated or are configured to be ignored.");
-                return;
-            }
-            foreach (var d in dirs)//MainDir.GetDirectories().Where(x => !Cfg.Config.IgnoreDirectoires.Contains(x.Name)))
-            {
-                d.Rename();
-//                d.WriteInfoToFile();
-            }
-        }
-
-        private static void CreateDirectoriesForVideoFiles()
-        {
-            var files = MainDir.GetFiles().Where(x => x.IsVideo());
-            if (files.Any())
-            {
-                foreach (var f in files)
-                {
-                    try
-                    {
-                        string newPath = Path.Combine(MainDir.CreateSubdirectory(f.GetNameWithoutExt()).FullName, f.Name);
-                        f.MoveTo(newPath);
-                    }
-                    catch (Exception e)
-                    {
-                        Logger.Error(e);
-                    }
-                }
+                mov.CreateEmptyDir(Annotater.MainDir);
             }
         }
 

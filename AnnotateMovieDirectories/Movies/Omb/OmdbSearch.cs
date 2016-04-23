@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Runtime.CompilerServices;
 using AnnotateMovieDirectories.Logging;
 using RestSharp;
 using RestSharp.Deserializers;
 
-namespace AnnotateMovieDirectories.Omdb
+namespace AnnotateMovieDirectories.Movies.Omb
 {
     public static class OmdbSearch
     {

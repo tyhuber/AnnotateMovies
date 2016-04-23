@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -7,12 +7,11 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using AnnotateMovieDirectories.Attributes;
 using AnnotateMovieDirectories.Configuration;
+using AnnotateMovieDirectories.Extensions;
 using AnnotateMovieDirectories.Logging;
 using AnnotateMovieDirectories.Omdb.Metacritic;
-using AnnotateMovieDirectories.Tools;
-using RestSharp.Extensions;
 
-namespace AnnotateMovieDirectories.Omdb
+namespace AnnotateMovieDirectories.Movies.Omb
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class OmdbResult
@@ -89,7 +88,37 @@ namespace AnnotateMovieDirectories.Omdb
 
         public int Rank { get; set; }
 
-        public double Score => GetScore();
+        public double Score
+        {
+            get
+            {
+                try
+                {
+                    return GetScore();
+                }
+                catch (Exception ex)
+                {
+                    Error($"Unable to get score for {Title??"null"}.");
+                    Error(ex);
+                    return 0;
+                }
+            }
+        }
+
+        private static void Error(string s, [CallerMemberName] string name = "", [CallerLineNumber] int ln = 0,
+            [CallerFilePath] string path = "")
+        {
+            Logger.BError(s, name, path, ln);
+        }
+
+        private static void Error(Exception ex, [CallerMemberName] string name = "",
+            [CallerLineNumber] int ln = 0,
+            [CallerFilePath] string path = "")
+        {
+            Logger.BError(ex, name, path, ln);
+        }
+
+
         /*{
             get
             {
@@ -129,36 +158,6 @@ namespace AnnotateMovieDirectories.Omdb
                     return;
                 }
             }
-//            List<string> ignore = new List<string>
-//            {
-//                "Title",
-//                "Year",
-//                "Genre",
-//                "Director",
-//                "Plot",
-//                "Runtime",
-//                "Metascore",
-//                "imdbRating",
-//                "imdbID",
-//                "tomatoMeter",
-//                "tomatoRating",
-//                "StdImdbRating,",
-//                "StdRtMeter",
-//                "StdRtRating",
-//                "StdRtUserMeter",
-//                "StdRtUserRating",
-//                "Rank"
-//            };
-//
-//            List<string> top = new List<string>
-//            {
-//                "Genre",
-//                "Plot",
-//                "Director",
-//                "Actors",
-//                "Language",
-//                "Awards"
-//            };
             var propInfo = GetType().GetProperties(BindingFlags.Public 
                 | BindingFlags.NonPublic 
                 | BindingFlags.Static 
@@ -202,18 +201,32 @@ namespace AnnotateMovieDirectories.Omdb
                  }
                  return Convert.ToDouble(x.GetValue(this, null));
              });
-//            Log($"Calculating weight for {Title}");
-            foreach (var kv in dict)
-            {
-//                Log($"Weighted rating = {kv.Value}. {kv.Key}");
-            }
-            return dict.Sum(x => x.Key.WeightedRating(x.Value));
+            var weightedRatings = dict.Select(x => new WeightedRating(x)).Where(x=>x.Valid);
+            Log($"{Title} ({Year}) ratings:");
+            Log(string.Join("\n  -",weightedRatings.Select(x=>x.ToString())));
+            var totalRating = weightedRatings.Sum(x => x.WeightRating);
+            Log($"Total rating = {totalRating}");
+            var totalWeight = weightedRatings.Sum(x => x.Weight);
+            Log($"Total weight = {totalWeight}");
+            var finalRating = (totalRating / totalWeight).Round();
+            Log($"Overall rating: {finalRating}");
+            return finalRating;
 
         }
 
         public string GetDirectoryName()
         {
-            return $"{Math.Round(Score,1)}, {Title} ({Year}) IMDB-{imdbRating}. RT={Math.Round(StdRtMeter??0,1)}%.{Math.Round(StdRtRating ?? 0,1)}, Meta-{Math.Round(Metascore,1)}";
+            string name = $"{Math.Round(Score,1)}, {Title} ({Year}) [{Runtime}] IMDB-{imdbRating}. RT={Math.Round(StdRtMeter??0,1)}%.{Math.Round(StdRtRating ?? 0,1)}, Meta-{Math.Round(Metascore,1)}";
+            var invalid = Path.GetInvalidFileNameChars().Intersect(name);
+            if (invalid.Any())
+            {
+                foreach (var i in invalid)
+                {
+                    name = name.Replace(i.ToString(), String.Empty);
+                }
+            }
+            return name;
+
         }
         private static void Log(string s, [CallerMemberName] string name = "", [CallerLineNumber] int ln = 0,
             [CallerFilePath] string path = "")

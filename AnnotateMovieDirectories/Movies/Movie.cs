@@ -8,11 +8,12 @@ using System.Text.RegularExpressions;
 using AnnotateMovieDirectories.Attributes;
 using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Extensions;
+using AnnotateMovieDirectories.Extensions.DirInfo;
 using AnnotateMovieDirectories.Logging;
+using AnnotateMovieDirectories.Movies.Omb;
 using AnnotateMovieDirectories.Omdb;
-using AnnotateMovieDirectories.Omdb.Metacritic;
 
-namespace AnnotateMovieDirectories.Tools
+namespace AnnotateMovieDirectories.MovieRatings
 {
     public class Movie
     {
@@ -52,7 +53,7 @@ namespace AnnotateMovieDirectories.Tools
         {
             return GetType().GetProperties()
                 .Where( x =>
-                    x.GetCustomAttributes<Tag>()
+                    CustomAttributeExtensions.GetCustomAttributes<Tag>((MemberInfo) x)
                         .Any(t => t.Name.Equals("MovieRegex"))).ToList().Select(x=>Convert.ChangeType(x.GetValue(this,null),x.PropertyType) as Regex);
         }
 

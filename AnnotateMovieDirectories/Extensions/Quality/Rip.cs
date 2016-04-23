@@ -1,4 +1,4 @@
-﻿namespace AnnotateMovieDirectories.Extensions
+﻿namespace AnnotateMovieDirectories.Extensions.Quality
 {
     public static class Rip
     {
@@ -7,7 +7,6 @@
             //BluRay|BRRip|BDrip|DVDRip|DVDSCR|WEBRip
             switch (ripType.ToLowerInvariant())
             {
-
                 case "bluray":
                     return RipType.BluRay;
                 case "brrip":

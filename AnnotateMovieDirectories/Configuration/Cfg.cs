@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
-using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Logging;
 
-namespace AnnotateMovieDirectories
+namespace AnnotateMovieDirectories.Configuration
 {
     public static class Cfg
     {
@@ -65,7 +64,7 @@ namespace AnnotateMovieDirectories
         {
             Settings = new Settings
             {
-                Overwrite = false,
+                OverwriteMovieInfo = false,
                 Path = @"C:\Users\Ty\Documents\Downloads\To Watch"
             },
             Ignore = new List<string>

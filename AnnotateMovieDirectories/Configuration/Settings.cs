@@ -9,9 +9,12 @@ namespace AnnotateMovieDirectories.Configuration
         [XmlAttribute]
         public string Path { get; set; }
         [XmlAttribute]
-        public bool Overwrite { get; set; }
+        public bool OverwriteMovieInfo { get; set; }
         [XmlAttribute]
         public bool Test { get; set; }
+        [XmlAttribute]
+        public bool Rename { get; set; }
+
         [XmlElement]
         public MetaCritic MetaCritic { get; set; }
         [XmlElement]
