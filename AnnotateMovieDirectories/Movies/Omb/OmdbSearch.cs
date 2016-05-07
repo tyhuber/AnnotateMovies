@@ -8,11 +8,27 @@ namespace AnnotateMovieDirectories.Movies.Omb
 {
     public static class OmdbSearch
     {
-        public static OmdbResult Query(string name, string year)
+        public static OmdbResult Query(string name, string year, bool fullPlot = true)
         {
-            name = name.Replace(' ', '+');
+            name = name.Trim().Replace(' ', '+');
             if (name.Contains("&#x27;")) name = name.Replace("&#x27;", "'");
-            string url = $"http://www.omdbapi.com/?t={name}&y={year}&plot=full&r=json&tomatoes=true";
+            
+            var omdb = PrivateQuery(name, year);
+            if (omdb!=null)
+            {
+                var shortOmdb = PrivateQuery(name, year, false);
+                if (!omdb.Plot.Equals(shortOmdb.Plot))
+                {
+                    omdb.ShortPlot = shortOmdb.Plot;
+                }
+            }
+            return omdb;
+        }
+
+        private static OmdbResult PrivateQuery(string name, string year, bool fullPlot = true)
+        {
+            string plotString = fullPlot ? "full" : "short";
+            string url = $"http://www.omdbapi.com/?t={name}&y={year}&plot={plotString}&r=json&tomatoes=true";
             RestClient client = new RestClient();
             client.BaseUrl = new Uri(url);
             RestRequest req = new RestRequest();
@@ -33,6 +49,7 @@ namespace AnnotateMovieDirectories.Movies.Omb
                 return default(OmdbResult);
             }
         }
+
         public static OmdbResult Query(string name)
         {
             name = name.Replace(' ', '+');

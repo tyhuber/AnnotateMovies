@@ -21,9 +21,14 @@ namespace AnnotateMovieDirectories.Movies.Omb
 
         public string Runtime { get; set; }
         public string Genre { get; set; }
+        public string ShortPlot { get; set; }
         public string Director { get; set; }
+        public string Writer { get; set; }
+        public string Actors { get; set; }
 
         public string Plot { get; set; }
+
+        
 
         [Rating(RatingType.MetaCritic)]
         public double Metascore => Meta.GetRating(Title, Year);
@@ -39,8 +44,7 @@ namespace AnnotateMovieDirectories.Movies.Omb
         public string tomatoUserMeter { get; set; }
         public string tomatoUserRating { get; set; }
               
-        public string Writer { get; set; }
-        public string Actors { get; set; } //Actors, Language, Country, 
+ //Actors, Language, Country, 
         public string Language { get; set; }
         public string Country { get; set; }
         public string Awards { get; set; }
@@ -170,8 +174,21 @@ namespace AnnotateMovieDirectories.Movies.Omb
             foreach (var prop in topProp)
             {
                 var val = Convert.ChangeType(prop.GetValue(this, null), prop.PropertyType);
-//                var val = (string) prop.GetValue(this, null);
+                if (string.IsNullOrWhiteSpace(Convert.ToString(val))) continue;
                 lines.Add($"{prop.Name}: {val}");
+                /*if (prop.Name == "ShortPlot")
+                {
+                    
+                    lines.Add($"\n{prop.Name}: {val}\n");
+                }
+                else if (prop.Name == "Plot")
+                {
+                    lines.Add($"\n{prop.Name}: {val}\n");
+                }
+                else
+                {
+                    lines.Add($"{prop.Name}: {val}");
+                } */
             }
             Log("Got the following top property values:");
             Logger.BLog(string.Join("\n",lines));
@@ -179,7 +196,7 @@ namespace AnnotateMovieDirectories.Movies.Omb
             var others = propInfo.Where(x => !Cfg.Config.AllIgnore.Any(n=>x.Name.Equals(n,StringComparison.OrdinalIgnoreCase)));
             foreach (var prop in others)
             {
-                var val = Convert.ChangeType(prop.GetValue(this, null), prop.PropertyType);
+                var val = Convert.ChangeType(prop.GetValue(this, null), prop.PropertyType);      
                 lines.Add($"{prop.Name}: {val}");
             }
             

@@ -12,6 +12,7 @@ namespace AnnotateMovieDirectories.Extensions
     public static class FileInfoExtensions
     {
         private static IEnumerable<string> VideoExtensions => new List<string> { "mkv", "avi", "mp4", "mpg", "mov", "wmv" };
+        private static IEnumerable<string> AudioExtensions => new List<string> {"aac","mp3","wma","flac","wav","aa","3gp","m4a", "m4b", "mpc","ogg","oga"};
         private static Regex RipRegex => new Regex(@"(BluRay|BRRip|BDrip|DVDRip|DVDSCR|WEBRip|HDRip)", RegexOptions.IgnoreCase);
         private static Regex QRegex => new Regex(@"(720|480|1080|1\d{3})p");
         private static Regex YearRegex => new Regex(@"(19|20)\d{2}");
@@ -49,6 +50,11 @@ namespace AnnotateMovieDirectories.Extensions
             }
             /*return (ext.Contains("mkv") || ext.Contains("avi") || ext.Contains("mp4") || ext.Contains("mpg") ||
                                    ext.Contains("mov") || ext.Contains("wmv"));*/
+        }
+
+        public static bool IsAudio(this FileInfo file)
+        {
+            return AudioExtensions.Any(x => x.Equals(file.Extension, StringComparison.OrdinalIgnoreCase));
         }
 
         public static string GetNameWithoutExt(this FileInfo file)

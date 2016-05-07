@@ -1,25 +1,2 @@
-[ERROR][4/23/2016 3:10:03 AM] [OmdbResult.Score ln 101] - Unable to get score for null.
-[CAUGHT EXCEPTION][4/23/2016 3:10:03 AM] [OmdbResult.Score ln 102] - Exception has been thrown by the target of an invocation.
-[Stack Trace][4/23/2016 3:10:03 AM] [OmdbResult.Score ln 102] -    at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
-   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
-   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
-   at AnnotateMovieDirectories.Movies.Omb.OmdbResult.<GetScore>b__97_2(PropertyInfo x) in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Omb\OmdbResult.cs:line 202
-   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
-   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector)
-   at AnnotateMovieDirectories.Movies.Omb.OmdbResult.GetScore() in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Omb\OmdbResult.cs:line 195
-   at AnnotateMovieDirectories.Movies.Omb.OmdbResult.get_Score() in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Omb\OmdbResult.cs:line 97
-[CAUGHT EXCEPTION][4/23/2016 3:10:03 AM] [OmdbSearch.Query ln 32] - Object reference not set to an instance of an object.
-[Stack Trace][4/23/2016 3:10:03 AM] [OmdbSearch.Query ln 32] -    at AnnotateMovieDirectories.Omdb.Metacritic.Meta.Query(String title, String year, String& ratingString) in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Metacritic\Meta.cs:line 36
-   at AnnotateMovieDirectories.Omdb.Metacritic.Meta.GetRating(String title, String year) in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Metacritic\Meta.cs:line 14
-   at AnnotateMovieDirectories.Movies.Omb.OmdbResult.get_Metascore() in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Omb\OmdbResult.cs:line 29
-   at AnnotateMovieDirectories.Movies.Omb.OmdbResult.ToString() in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Omb\OmdbResult.cs:line 139
-   at AnnotateMovieDirectories.Movies.Omb.OmdbSearch.Query(String name, String year) in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Omb\OmdbSearch.cs:line 27
-[ERROR][4/23/2016 3:10:03 AM] [DirRename.Search ln 122] - Unable to get omdb result for Ghandi (1982) [03-11-14]
-[ERROR][4/23/2016 3:10:03 AM] [DirRename.Search ln 115] - Could not get movie name for Solaris
-[CAUGHT EXCEPTION][4/23/2016 3:10:09 AM] [DirRename.Rename ln 47] - Cannot create a file when that file already exists.
-
-[Stack Trace][4/23/2016 3:10:09 AM] [DirRename.Rename ln 47] -    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.DirectoryInfo.MoveTo(String destDirName)
-   at AnnotateMovieDirectories.Extensions.DirInfo.DirRename.Rename(DirectoryInfo dir) in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Extensions\DirInfo\DirRename.cs:line 42
+[ERROR][5/7/2016 12:32:55 AM] [DirRename.Search ln 115] - Could not get movie name for Kiki's Delivery Service
+[ERROR][5/7/2016 12:32:55 AM] [DirRename.Search ln 115] - Could not get movie name for Solaris

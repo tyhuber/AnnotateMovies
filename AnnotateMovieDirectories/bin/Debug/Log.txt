@@ -1,9 +1,9 @@
-[MESSAGE][4/23/2016 3:08:35 AM] [Program.Main ln 28] - Beginning annotation script
-[MESSAGE][4/23/2016 3:08:35 AM] [Annotater.GetRatingsAndRename ln 18] - Config settings:
-Settings: Path: C:\Users\Ty\Documents\Downloads\To Watch
+[MESSAGE][5/7/2016 12:32:48 AM] [Program.Main ln 32] - Beginning annotation script
+[MESSAGE][5/7/2016 12:32:49 AM] [Annotater.GetRatingsAndRename ln 18] - Config settings:
+Settings: Path: C:\Users\Ty\Documents\Downloads\To Watch\Test'
 OverwriteMovieInfo: False
 Test: False
-Rename: True
+Rename: False
 MetaCritic: Add: True
 Use: True
 Weights: Imdb: 0.3
@@ -12,12 +12,13 @@ RtRating: 0.1
 MetaCritic: 0.3
 Top:
   -Genre
-  -Score
-  -Plot
+  -ShortPlot
   -Director
   -Actors
   -Language
+  -Plot
   -Awards
+  -Score
 Ignore:
   -Title
   -Year
@@ -39,896 +40,107 @@ IgnoreDirectoires:
   -ebooks
   -Documentaries
   -TV
+  -'TVShows
   -Test'
   -_incomplete
-  -Nathan For You
+  -_audio
   -Score+Meta
-[MESSAGE][4/23/2016 3:08:35 AM] [FileInfoExtensions.IsVideo ln 30] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\AnnotateConfig.xml is .xml
-[MESSAGE][4/23/2016 3:08:35 AM] [FileInfoExtensions.IsVideo ln 30] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\Audio Books.lnk is .lnk
-[MESSAGE][4/23/2016 3:08:35 AM] [FileInfoExtensions.IsVideo ln 30] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\Documentaries.lnk is .lnk
-[MESSAGE][4/23/2016 3:08:35 AM] [FileInfoExtensions.IsVideo ln 30] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\ebooks.lnk is .lnk
-[MESSAGE][4/23/2016 3:08:35 AM] [FileInfoExtensions.IsVideo ln 30] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\Movies.lnk is .lnk
-[MESSAGE][4/23/2016 3:08:35 AM] [FileInfoExtensions.IsVideo ln 30] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\OverallTopDocs.xlsx is .xlsx
-[MESSAGE][4/23/2016 3:08:35 AM] [FileInfoExtensions.IsVideo ln 30] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\OverallTopDocsCsv.csv is .csv
-[MESSAGE][4/23/2016 3:08:35 AM] [FileInfoExtensions.IsVideo ln 30] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\OverallTopDocs_Resort.xlsx is .xlsx
-[MESSAGE][4/23/2016 3:08:35 AM] [FileInfoExtensions.IsVideo ln 30] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\OverallTopMovies.xlsx is .xlsx
-[MESSAGE][4/23/2016 3:08:35 AM] [FileInfoExtensions.IsVideo ln 30] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\TV.lnk is .lnk
-[MESSAGE][4/23/2016 3:08:35 AM] [FileInfoExtensions.IsVideo ln 30] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\~$OverallTopDocs_Resort.xlsx is .xlsx
-[MESSAGE][4/23/2016 3:08:35 AM] [FileInfoExtensions.IsVideo ln 30] - Extension for C:\Users\Ty\Documents\Downloads\To Watch\~$OverallTopMovies.xlsx is .xlsx
-[MESSAGE][4/23/2016 3:08:36 AM] [OmdbResult.GetScore ln 205] - Ronin (1998) ratings:
-[MESSAGE][4/23/2016 3:08:36 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=20.1 Unweighted=67 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=21.9 Unweighted=73 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=20.4 Unweighted=68 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=6.3 Unweighted=63 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:36 AM] [OmdbResult.GetScore ln 208] - Total rating = 68.7000005722046
-[MESSAGE][4/23/2016 3:08:36 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:36 AM] [OmdbResult.GetScore ln 212] - Overall rating: 68.7
-[MESSAGE][4/23/2016 3:08:36 AM] [OmdbSearch.Query ln 27] - Ronin (1998). Score = 68.7
-Std:
-  IMDB=73.0000019073486
-  Metacritic=67
-  Rotten Tomatoes: 68%, Rating=63
-[MESSAGE][4/23/2016 3:08:37 AM] [OmdbResult.GetScore ln 205] - Ronin (1998) ratings:
-[MESSAGE][4/23/2016 3:08:37 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=20.1 Unweighted=67 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=21.9 Unweighted=73 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=20.4 Unweighted=68 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=6.3 Unweighted=63 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:37 AM] [OmdbResult.GetScore ln 208] - Total rating = 68.7000005722046
-[MESSAGE][4/23/2016 3:08:37 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:37 AM] [OmdbResult.GetScore ln 212] - Overall rating: 68.7
-[MESSAGE][4/23/2016 3:08:37 AM] [DirRename.Rename ln 38] - For 68.7, Ronin (1998) IMDB-7.3. RT=68%.63, Meta-67, new name = 68.7, Ronin (1998) [122 min] IMDB-7.3. RT=68%.63, Meta-67
-[MESSAGE][4/23/2016 3:08:37 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\68.7, Ronin (1998) [122 min] IMDB-7.3. RT=68%.63, Meta-67\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:37 AM] [OmdbResult.GetScore ln 205] - Four Lions (2010) ratings:
-[MESSAGE][4/23/2016 3:08:37 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=20.4 Unweighted=68 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=21.9 Unweighted=73 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=7.2 Unweighted=72 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:37 AM] [OmdbResult.GetScore ln 208] - Total rating = 74.1000005722046
-[MESSAGE][4/23/2016 3:08:37 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:37 AM] [OmdbResult.GetScore ln 212] - Overall rating: 74.1
-[MESSAGE][4/23/2016 3:08:38 AM] [OmdbSearch.Query ln 27] - Four Lions (2010). Score = 74.1
-Std:
-  IMDB=73.0000019073486
-  Metacritic=68
-  Rotten Tomatoes: 82%, Rating=72
-[MESSAGE][4/23/2016 3:08:38 AM] [OmdbResult.GetScore ln 205] - Four Lions (2010) ratings:
-[MESSAGE][4/23/2016 3:08:38 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=20.4 Unweighted=68 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=21.9 Unweighted=73 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=7.2 Unweighted=72 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:38 AM] [OmdbResult.GetScore ln 208] - Total rating = 74.1000005722046
-[MESSAGE][4/23/2016 3:08:38 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:38 AM] [OmdbResult.GetScore ln 212] - Overall rating: 74.1
-[MESSAGE][4/23/2016 3:08:39 AM] [DirRename.Rename ln 38] - For 74.1, Four Lions (2010) IMDB-7.3. RT=82%.72, Meta-68, new name = 74.1, Four Lions (2010) [97 min] IMDB-7.3. RT=82%.72, Meta-68
-[MESSAGE][4/23/2016 3:08:39 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\74.1, Four Lions (2010) [97 min] IMDB-7.3. RT=82%.72, Meta-68\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:40 AM] [OmdbResult.GetScore ln 205] - Kiki's Delivery Service (1989) ratings:
-[MESSAGE][4/23/2016 3:08:40 AM] [OmdbResult.GetScore ln 206] - Imdb: Valid? True. Weighted=23.7 Unweighted=79 Weight=0.3. 
-[MESSAGE][4/23/2016 3:08:40 AM] [OmdbResult.GetScore ln 208] - Total rating = 23.7000002861023
-[MESSAGE][4/23/2016 3:08:40 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.3
-[MESSAGE][4/23/2016 3:08:40 AM] [OmdbResult.GetScore ln 212] - Overall rating: 79
-[MESSAGE][4/23/2016 3:08:40 AM] [OmdbSearch.Query ln 27] - Kiki's Delivery Service (1989). Score = 79
-Std:
-  IMDB=79.0000009536743
-  Metacritic=0
-  Rotten Tomatoes: %, Rating=
-[MESSAGE][4/23/2016 3:08:41 AM] [OmdbResult.GetScore ln 205] - Kiki's Delivery Service (1989) ratings:
-[MESSAGE][4/23/2016 3:08:41 AM] [OmdbResult.GetScore ln 206] - Imdb: Valid? True. Weighted=23.7 Unweighted=79 Weight=0.3. 
-[MESSAGE][4/23/2016 3:08:41 AM] [OmdbResult.GetScore ln 208] - Total rating = 23.7000002861023
-[MESSAGE][4/23/2016 3:08:41 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.3
-[MESSAGE][4/23/2016 3:08:41 AM] [OmdbResult.GetScore ln 212] - Overall rating: 79
-[MESSAGE][4/23/2016 3:08:41 AM] [DirRename.Rename ln 38] - For 79, Kiki's Delivery Service (1989) IMDB-7.9. RT=0%.0, Meta-0, new name = 79, Kiki's Delivery Service (1989) [103 min] IMDB-7.9. RT=0%.0, Meta-0
-[MESSAGE][4/23/2016 3:08:41 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\79, Kiki's Delivery Service (1989) [103 min] IMDB-7.9. RT=0%.0, Meta-0\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:42 AM] [OmdbResult.GetScore ln 205] - Edge of Tomorrow (2014) ratings:
-[MESSAGE][4/23/2016 3:08:42 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=21.3 Unweighted=71 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=23.7 Unweighted=79 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=7.5 Unweighted=75 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:42 AM] [OmdbResult.GetScore ln 208] - Total rating = 79.5000002861023
-[MESSAGE][4/23/2016 3:08:42 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:42 AM] [OmdbResult.GetScore ln 212] - Overall rating: 79.5
-[MESSAGE][4/23/2016 3:08:42 AM] [OmdbSearch.Query ln 27] - Edge of Tomorrow (2014). Score = 79.5
-Std:
-  IMDB=79.0000009536743
-  Metacritic=71
-  Rotten Tomatoes: 90%, Rating=75
-[MESSAGE][4/23/2016 3:08:42 AM] [OmdbResult.GetScore ln 205] - Edge of Tomorrow (2014) ratings:
-[MESSAGE][4/23/2016 3:08:42 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=21.3 Unweighted=71 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=23.7 Unweighted=79 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=7.5 Unweighted=75 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:42 AM] [OmdbResult.GetScore ln 208] - Total rating = 79.5000002861023
-[MESSAGE][4/23/2016 3:08:42 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:42 AM] [OmdbResult.GetScore ln 212] - Overall rating: 79.5
-[MESSAGE][4/23/2016 3:08:43 AM] [DirRename.Rename ln 38] - For 79.5, Edge of Tomorrow (2014) IMDB-7.9. RT=90%.75, Meta-71, new name = 79.5, Edge of Tomorrow (2014) [113 min] IMDB-7.9. RT=90%.75, Meta-71
-[MESSAGE][4/23/2016 3:08:43 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\79.5, Edge of Tomorrow (2014) [113 min] IMDB-7.9. RT=90%.75, Meta-71\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:43 AM] [OmdbResult.GetScore ln 205] - The Shining (1980) ratings:
-[MESSAGE][4/23/2016 3:08:43 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=19.2 Unweighted=64 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=25.2 Unweighted=84 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=26.7 Unweighted=89 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.5 Unweighted=85 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:43 AM] [OmdbResult.GetScore ln 208] - Total rating = 79.5999988555908
-[MESSAGE][4/23/2016 3:08:43 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:43 AM] [OmdbResult.GetScore ln 212] - Overall rating: 79.6
-[MESSAGE][4/23/2016 3:08:44 AM] [OmdbSearch.Query ln 27] - The Shining (1980). Score = 79.6
-Std:
-  IMDB=83.9999961853027
-  Metacritic=64
-  Rotten Tomatoes: 89%, Rating=85
-[MESSAGE][4/23/2016 3:08:44 AM] [OmdbResult.GetScore ln 205] - The Shining (1980) ratings:
-[MESSAGE][4/23/2016 3:08:44 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=19.2 Unweighted=64 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=25.2 Unweighted=84 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=26.7 Unweighted=89 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.5 Unweighted=85 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:44 AM] [OmdbResult.GetScore ln 208] - Total rating = 79.5999988555908
-[MESSAGE][4/23/2016 3:08:44 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:44 AM] [OmdbResult.GetScore ln 212] - Overall rating: 79.6
-[MESSAGE][4/23/2016 3:08:44 AM] [DirRename.Rename ln 38] - For 79.6, The Shining (1980) IMDB-8.4. RT=89%.85, Meta-64, new name = 79.6, The Shining (1980) [146 min] IMDB-8.4. RT=89%.85, Meta-64
-[MESSAGE][4/23/2016 3:08:44 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\79.6, The Shining (1980) [146 min] IMDB-8.4. RT=89%.85, Meta-64\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:45 AM] [OmdbResult.GetScore ln 205] - Warrior (2011) ratings:
-[MESSAGE][4/23/2016 3:08:45 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=22.8 Unweighted=76 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=7.3 Unweighted=73 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:45 AM] [OmdbResult.GetScore ln 208] - Total rating = 79.5999994277954
-[MESSAGE][4/23/2016 3:08:45 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:45 AM] [OmdbResult.GetScore ln 212] - Overall rating: 79.6
-[MESSAGE][4/23/2016 3:08:45 AM] [OmdbSearch.Query ln 27] - Warrior (2011). Score = 79.6
-Std:
-  IMDB=81.9999980926514
-  Metacritic=76
-  Rotten Tomatoes: 83%, Rating=73
-[MESSAGE][4/23/2016 3:08:46 AM] [OmdbResult.GetScore ln 205] - Warrior (2011) ratings:
-[MESSAGE][4/23/2016 3:08:46 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=22.8 Unweighted=76 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=7.3 Unweighted=73 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:46 AM] [OmdbResult.GetScore ln 208] - Total rating = 79.5999994277954
-[MESSAGE][4/23/2016 3:08:46 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:46 AM] [OmdbResult.GetScore ln 212] - Overall rating: 79.6
-[MESSAGE][4/23/2016 3:08:46 AM] [DirRename.Rename ln 38] - For 79.6, Warrior (2011) IMDB-8.2. RT=83%.73, Meta-76, new name = 79.6, Warrior (2011) [140 min] IMDB-8.2. RT=83%.73, Meta-76
-[MESSAGE][4/23/2016 3:08:46 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\79.6, Warrior (2011) [140 min] IMDB-8.2. RT=83%.73, Meta-76\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:47 AM] [OmdbResult.GetScore ln 205] - Mulholland Drive (2001) ratings:
-[MESSAGE][4/23/2016 3:08:47 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24.3 Unweighted=81 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24 Unweighted=80 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=7.4 Unweighted=74 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:47 AM] [OmdbResult.GetScore ln 208] - Total rating = 80.3
-[MESSAGE][4/23/2016 3:08:47 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:47 AM] [OmdbResult.GetScore ln 212] - Overall rating: 80.3
-[MESSAGE][4/23/2016 3:08:47 AM] [OmdbSearch.Query ln 27] - Mulholland Drive (2001). Score = 80.3
-Std:
-  IMDB=80
-  Metacritic=81
-  Rotten Tomatoes: 82%, Rating=74
-[MESSAGE][4/23/2016 3:08:48 AM] [OmdbResult.GetScore ln 205] - Mulholland Drive (2001) ratings:
-[MESSAGE][4/23/2016 3:08:48 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24.3 Unweighted=81 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24 Unweighted=80 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=7.4 Unweighted=74 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:48 AM] [OmdbResult.GetScore ln 208] - Total rating = 80.3
-[MESSAGE][4/23/2016 3:08:48 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:48 AM] [OmdbResult.GetScore ln 212] - Overall rating: 80.3
-[MESSAGE][4/23/2016 3:08:48 AM] [DirRename.Rename ln 38] - For 80.3, Mulholland Drive (2001) IMDB-8. RT=82%.74, Meta-81, new name = 80.3, Mulholland Drive (2001) [147 min] IMDB-8. RT=82%.74, Meta-81
-[MESSAGE][4/23/2016 3:08:48 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\80.3, Mulholland Drive (2001) [147 min] IMDB-8. RT=82%.74, Meta-81\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:49 AM] [OmdbResult.GetScore ln 205] - Encounters at the End of the World (2007) ratings:
-[MESSAGE][4/23/2016 3:08:49 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24 Unweighted=80 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=23.4 Unweighted=78 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.2 Unweighted=94 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=7.6 Unweighted=76 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:49 AM] [OmdbResult.GetScore ln 208] - Total rating = 83.2000005722046
-[MESSAGE][4/23/2016 3:08:49 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:49 AM] [OmdbResult.GetScore ln 212] - Overall rating: 83.2
-[MESSAGE][4/23/2016 3:08:49 AM] [OmdbSearch.Query ln 27] - Encounters at the End of the World (2007). Score = 83.2
-Std:
-  IMDB=78.0000019073486
-  Metacritic=80
-  Rotten Tomatoes: 94%, Rating=76
-[MESSAGE][4/23/2016 3:08:49 AM] [OmdbResult.GetScore ln 205] - Encounters at the End of the World (2007) ratings:
-[MESSAGE][4/23/2016 3:08:49 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24 Unweighted=80 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=23.4 Unweighted=78 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.2 Unweighted=94 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=7.6 Unweighted=76 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:49 AM] [OmdbResult.GetScore ln 208] - Total rating = 83.2000005722046
-[MESSAGE][4/23/2016 3:08:49 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:49 AM] [OmdbResult.GetScore ln 212] - Overall rating: 83.2
-[MESSAGE][4/23/2016 3:08:50 AM] [DirRename.Rename ln 38] - For 83.2, Encounters at the End of the World (2007) IMDB-7.8. RT=94%.76, Meta-80, new name = 83.2, Encounters at the End of the World (2007) [99 min] IMDB-7.8. RT=94%.76, Meta-80
-[MESSAGE][4/23/2016 3:08:50 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\83.2, Encounters at the End of the World (2007) [99 min] IMDB-7.8. RT=94%.76, Meta-80\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:51 AM] [OmdbResult.GetScore ln 205] - Europa Europa (1990) ratings:
-[MESSAGE][4/23/2016 3:08:51 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=23.1 Unweighted=77 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=23.1 Unweighted=77 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=30 Unweighted=100 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=7.6 Unweighted=76 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:51 AM] [OmdbResult.GetScore ln 208] - Total rating = 83.7999994277954
-[MESSAGE][4/23/2016 3:08:51 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:51 AM] [OmdbResult.GetScore ln 212] - Overall rating: 83.8
-[MESSAGE][4/23/2016 3:08:51 AM] [OmdbSearch.Query ln 27] - Europa Europa (1990). Score = 83.8
-Std:
-  IMDB=76.9999980926514
-  Metacritic=77
-  Rotten Tomatoes: 100%, Rating=76
-[MESSAGE][4/23/2016 3:08:52 AM] [OmdbResult.GetScore ln 205] - Europa Europa (1990) ratings:
-[MESSAGE][4/23/2016 3:08:52 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=23.1 Unweighted=77 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=23.1 Unweighted=77 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=30 Unweighted=100 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=7.6 Unweighted=76 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:52 AM] [OmdbResult.GetScore ln 208] - Total rating = 83.7999994277954
-[MESSAGE][4/23/2016 3:08:52 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:52 AM] [OmdbResult.GetScore ln 212] - Overall rating: 83.8
-[MESSAGE][4/23/2016 3:08:52 AM] [DirRename.Rename ln 38] - For 83.8, Europa Europa (1990) IMDB-7.7. RT=100%.76, Meta-77, new name = 83.8, Europa Europa (1990) [112 min] IMDB-7.7. RT=100%.76, Meta-77
-[MESSAGE][4/23/2016 3:08:52 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\83.8, Europa Europa (1990) [112 min] IMDB-7.7. RT=100%.76, Meta-77\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:52 AM] [OmdbResult.GetScore ln 205] - A Clockwork Orange (1971) ratings:
-[MESSAGE][4/23/2016 3:08:52 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=23.4 Unweighted=78 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=25.2 Unweighted=84 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.4 Unweighted=84 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:52 AM] [OmdbResult.GetScore ln 208] - Total rating = 83.9999988555908
-[MESSAGE][4/23/2016 3:08:52 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:52 AM] [OmdbResult.GetScore ln 212] - Overall rating: 84
-[MESSAGE][4/23/2016 3:08:53 AM] [OmdbSearch.Query ln 27] - A Clockwork Orange (1971). Score = 84
-Std:
-  IMDB=83.9999961853027
-  Metacritic=78
-  Rotten Tomatoes: 90%, Rating=84
-[MESSAGE][4/23/2016 3:08:53 AM] [OmdbResult.GetScore ln 205] - A Clockwork Orange (1971) ratings:
-[MESSAGE][4/23/2016 3:08:53 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=23.4 Unweighted=78 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=25.2 Unweighted=84 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.4 Unweighted=84 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:53 AM] [OmdbResult.GetScore ln 208] - Total rating = 83.9999988555908
-[MESSAGE][4/23/2016 3:08:53 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:53 AM] [OmdbResult.GetScore ln 212] - Overall rating: 84
-[MESSAGE][4/23/2016 3:08:54 AM] [DirRename.Rename ln 38] - For 84, A Clockwork Orange (1971) IMDB-8.4. RT=90%.84, Meta-78, new name = 84, A Clockwork Orange (1971) [136 min] IMDB-8.4. RT=90%.84, Meta-78
-[MESSAGE][4/23/2016 3:08:54 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\84, A Clockwork Orange (1971) [136 min] IMDB-8.4. RT=90%.84, Meta-78\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:54 AM] [OmdbResult.GetScore ln 205] - Hugo (2011) ratings:
-[MESSAGE][4/23/2016 3:08:54 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=22.8 Unweighted=76 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.2 Unweighted=94 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:54 AM] [OmdbResult.GetScore ln 208] - Total rating = 84.1999997138977
-[MESSAGE][4/23/2016 3:08:54 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:54 AM] [OmdbResult.GetScore ln 212] - Overall rating: 84.2
-[MESSAGE][4/23/2016 3:08:54 AM] [OmdbSearch.Query ln 27] - Hugo (2011). Score = 84.2
-Std:
-  IMDB=75.9999990463257
-  Metacritic=83
-  Rotten Tomatoes: 94%, Rating=83
-[MESSAGE][4/23/2016 3:08:55 AM] [OmdbResult.GetScore ln 205] - Hugo (2011) ratings:
-[MESSAGE][4/23/2016 3:08:55 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=22.8 Unweighted=76 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.2 Unweighted=94 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:55 AM] [OmdbResult.GetScore ln 208] - Total rating = 84.1999997138977
-[MESSAGE][4/23/2016 3:08:55 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:55 AM] [OmdbResult.GetScore ln 212] - Overall rating: 84.2
-[MESSAGE][4/23/2016 3:08:55 AM] [DirRename.Rename ln 38] - For 84.2, Hugo (2011) IMDB-7.6. RT=94%.83, Meta-83, new name = 84.2, Hugo (2011) [126 min] IMDB-7.6. RT=94%.83, Meta-83
-[MESSAGE][4/23/2016 3:08:55 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\84.2, Hugo (2011) [126 min] IMDB-7.6. RT=94%.83, Meta-83\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:56 AM] [OmdbResult.GetScore ln 205] - Jean de Florette (1986) ratings:
-[MESSAGE][4/23/2016 3:08:56 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=22.2 Unweighted=74 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.3 Unweighted=81 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=30 Unweighted=100 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.1 Unweighted=81 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:56 AM] [OmdbResult.GetScore ln 208] - Total rating = 84.6000011444092
-[MESSAGE][4/23/2016 3:08:56 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:56 AM] [OmdbResult.GetScore ln 212] - Overall rating: 84.6
-[MESSAGE][4/23/2016 3:08:56 AM] [OmdbSearch.Query ln 27] - Jean de Florette (1986). Score = 84.6
-Std:
-  IMDB=81.0000038146973
-  Metacritic=74
-  Rotten Tomatoes: 100%, Rating=81
-[MESSAGE][4/23/2016 3:08:57 AM] [OmdbResult.GetScore ln 205] - Jean de Florette (1986) ratings:
-[MESSAGE][4/23/2016 3:08:57 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=22.2 Unweighted=74 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.3 Unweighted=81 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=30 Unweighted=100 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.1 Unweighted=81 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:57 AM] [OmdbResult.GetScore ln 208] - Total rating = 84.6000011444092
-[MESSAGE][4/23/2016 3:08:57 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:57 AM] [OmdbResult.GetScore ln 212] - Overall rating: 84.6
-[MESSAGE][4/23/2016 3:08:57 AM] [DirRename.Rename ln 38] - For 84.6, Jean de Florette (1986) IMDB-8.1. RT=100%.81, Meta-74, new name = 84.6, Jean de Florette (1986) [120 min] IMDB-8.1. RT=100%.81, Meta-74
-[MESSAGE][4/23/2016 3:08:57 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\84.6, Jean de Florette (1986) [120 min] IMDB-8.1. RT=100%.81, Meta-74\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:57 AM] [OmdbResult.GetScore ln 205] - Winter's Bone (2010) ratings:
-[MESSAGE][4/23/2016 3:08:57 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=21.6 Unweighted=72 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.2 Unweighted=94 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:57 AM] [OmdbResult.GetScore ln 208] - Total rating = 85.0999994277954
-[MESSAGE][4/23/2016 3:08:57 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:57 AM] [OmdbResult.GetScore ln 212] - Overall rating: 85.1
-[MESSAGE][4/23/2016 3:08:58 AM] [OmdbSearch.Query ln 27] - Winter's Bone (2010). Score = 85.1
-Std:
-  IMDB=71.9999980926514
-  Metacritic=90
-  Rotten Tomatoes: 94%, Rating=83
-[MESSAGE][4/23/2016 3:08:58 AM] [OmdbResult.GetScore ln 205] - Winter's Bone (2010) ratings:
-[MESSAGE][4/23/2016 3:08:58 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=21.6 Unweighted=72 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.2 Unweighted=94 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:58 AM] [OmdbResult.GetScore ln 208] - Total rating = 85.0999994277954
-[MESSAGE][4/23/2016 3:08:58 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:08:58 AM] [OmdbResult.GetScore ln 212] - Overall rating: 85.1
-[MESSAGE][4/23/2016 3:08:59 AM] [DirRename.Rename ln 38] - For 85.1, Winter's Bone (2010) IMDB-7.2. RT=94%.83, Meta-90, new name = 85.1, Winter's Bone (2010) [100 min] IMDB-7.2. RT=94%.83, Meta-90
-[MESSAGE][4/23/2016 3:08:59 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\85.1, Winter's Bone (2010) [100 min] IMDB-7.2. RT=94%.83, Meta-90\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:08:59 AM] [OmdbResult.GetScore ln 205] - The Day the Earth Stood Still (1951) ratings:
-[MESSAGE][4/23/2016 3:08:59 AM] [OmdbResult.GetScore ln 206] - Imdb: Valid? True. Weighted=23.4 Unweighted=78 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.2 Unweighted=94 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.1 Unweighted=81 Weight=0.1. 
-[MESSAGE][4/23/2016 3:08:59 AM] [OmdbResult.GetScore ln 208] - Total rating = 59.7000005722046
-[MESSAGE][4/23/2016 3:08:59 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.7
-[MESSAGE][4/23/2016 3:08:59 AM] [OmdbResult.GetScore ln 212] - Overall rating: 85.3
-[MESSAGE][4/23/2016 3:09:00 AM] [OmdbSearch.Query ln 27] - The Day the Earth Stood Still (1951). Score = 85.3
-Std:
-  IMDB=78.0000019073486
-  Metacritic=0
-  Rotten Tomatoes: 94%, Rating=81
-[MESSAGE][4/23/2016 3:09:00 AM] [OmdbResult.GetScore ln 205] - The Day the Earth Stood Still (1951) ratings:
-[MESSAGE][4/23/2016 3:09:00 AM] [OmdbResult.GetScore ln 206] - Imdb: Valid? True. Weighted=23.4 Unweighted=78 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.2 Unweighted=94 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.1 Unweighted=81 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:00 AM] [OmdbResult.GetScore ln 208] - Total rating = 59.7000005722046
-[MESSAGE][4/23/2016 3:09:00 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.7
-[MESSAGE][4/23/2016 3:09:00 AM] [OmdbResult.GetScore ln 212] - Overall rating: 85.3
-[MESSAGE][4/23/2016 3:09:00 AM] [DirRename.Rename ln 38] - For 85.3, The Day the Earth Stood Still (1951) IMDB-7.8. RT=94%.81, Meta-0, new name = 85.3, The Day the Earth Stood Still (1951) [92 min] IMDB-7.8. RT=94%.81, Meta-0
-[MESSAGE][4/23/2016 3:09:00 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\85.3, The Day the Earth Stood Still (1951) [92 min] IMDB-7.8. RT=94%.81, Meta-0\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:01 AM] [OmdbResult.GetScore ln 205] - Grizzly Man (2005) ratings:
-[MESSAGE][4/23/2016 3:09:01 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=26.1 Unweighted=87 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=23.4 Unweighted=78 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=27.9 Unweighted=93 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8 Unweighted=80 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:01 AM] [OmdbResult.GetScore ln 208] - Total rating = 85.4000005722046
-[MESSAGE][4/23/2016 3:09:01 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:01 AM] [OmdbResult.GetScore ln 212] - Overall rating: 85.4
-[MESSAGE][4/23/2016 3:09:01 AM] [OmdbSearch.Query ln 27] - Grizzly Man (2005). Score = 85.4
-Std:
-  IMDB=78.0000019073486
-  Metacritic=87
-  Rotten Tomatoes: 93%, Rating=80
-[MESSAGE][4/23/2016 3:09:02 AM] [OmdbResult.GetScore ln 205] - Grizzly Man (2005) ratings:
-[MESSAGE][4/23/2016 3:09:02 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=26.1 Unweighted=87 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=23.4 Unweighted=78 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=27.9 Unweighted=93 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8 Unweighted=80 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:02 AM] [OmdbResult.GetScore ln 208] - Total rating = 85.4000005722046
-[MESSAGE][4/23/2016 3:09:02 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:02 AM] [OmdbResult.GetScore ln 212] - Overall rating: 85.4
-[MESSAGE][4/23/2016 3:09:02 AM] [DirRename.Rename ln 38] - For 85.4, Grizzly Man (2005) IMDB-7.8. RT=93%.80, Meta-87, new name = 85.4, Grizzly Man (2005) [103 min] IMDB-7.8. RT=93%.80, Meta-87
-[MESSAGE][4/23/2016 3:09:02 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\85.4, Grizzly Man (2005) [103 min] IMDB-7.8. RT=93%.80, Meta-87\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:02 AM] [OmdbResult.GetScore ln 205] - Before Sunrise (1995) ratings:
-[MESSAGE][4/23/2016 3:09:02 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=23.1 Unweighted=77 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.3 Unweighted=81 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=30 Unweighted=100 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:02 AM] [OmdbResult.GetScore ln 208] - Total rating = 85.7000011444092
-[MESSAGE][4/23/2016 3:09:02 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:02 AM] [OmdbResult.GetScore ln 212] - Overall rating: 85.7
-[MESSAGE][4/23/2016 3:09:03 AM] [OmdbSearch.Query ln 27] - Before Sunrise (1995). Score = 85.7
-Std:
-  IMDB=81.0000038146973
-  Metacritic=77
-  Rotten Tomatoes: 100%, Rating=83
-[MESSAGE][4/23/2016 3:09:03 AM] [OmdbResult.GetScore ln 205] - Before Sunrise (1995) ratings:
-[MESSAGE][4/23/2016 3:09:03 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=23.1 Unweighted=77 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.3 Unweighted=81 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=30 Unweighted=100 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:03 AM] [OmdbResult.GetScore ln 208] - Total rating = 85.7000011444092
-[MESSAGE][4/23/2016 3:09:03 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:03 AM] [OmdbResult.GetScore ln 212] - Overall rating: 85.7
-[MESSAGE][4/23/2016 3:09:04 AM] [DirRename.Rename ln 38] - For 85.7, Before Sunrise (1995) IMDB-8.1. RT=100%.83, Meta-77, new name = 85.7, Before Sunrise (1995) [105 min] IMDB-8.1. RT=100%.83, Meta-77
-[MESSAGE][4/23/2016 3:09:04 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\85.7, Before Sunrise (1995) [105 min] IMDB-8.1. RT=100%.83, Meta-77\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:04 AM] [OmdbResult.GetScore ln 205] - American Graffiti (1973) ratings:
-[MESSAGE][4/23/2016 3:09:04 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
+  -_Watched
+  -_delete - Shortcut
+[MESSAGE][5/7/2016 12:32:49 AM] [DirMovie.GetMovieName ln 77] - Attempting to get movie name for American Graffiti (1973)
+[MESSAGE][5/7/2016 12:32:49 AM] [DirMovie.GetFirstRegexMatch ln 37] - First regex match is Year at index 18
+[MESSAGE][5/7/2016 12:32:49 AM] [DirMovie.GetMovieName ln 87] - Got movie name American Graffiti  for American Graffiti (1973)
+[MESSAGE][5/7/2016 12:32:50 AM] [OmdbResult.GetScore ln 222] - American Graffiti (1973) ratings:
+[MESSAGE][5/7/2016 12:32:50 AM] [OmdbResult.GetScore ln 223] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
   -Imdb: Valid? True. Weighted=22.5 Unweighted=75 Weight=0.3. 
   -RtFresh: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
   -RtRating: Valid? True. Weighted=8.4 Unweighted=84 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:04 AM] [OmdbResult.GetScore ln 208] - Total rating = 86.4
-[MESSAGE][4/23/2016 3:09:04 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:04 AM] [OmdbResult.GetScore ln 212] - Overall rating: 86.4
-[MESSAGE][4/23/2016 3:09:05 AM] [OmdbSearch.Query ln 27] - American Graffiti (1973). Score = 86.4
+[MESSAGE][5/7/2016 12:32:50 AM] [OmdbResult.GetScore ln 225] - Total rating = 86.4
+[MESSAGE][5/7/2016 12:32:50 AM] [OmdbResult.GetScore ln 227] - Total weight = 1
+[MESSAGE][5/7/2016 12:32:50 AM] [OmdbResult.GetScore ln 229] - Overall rating: 86.4
+[MESSAGE][5/7/2016 12:32:51 AM] [OmdbSearch.PrivateQuery ln 43] - American Graffiti (1973). Score = 86.4
 Std:
   IMDB=75
   Metacritic=90
   Rotten Tomatoes: 95%, Rating=84
-[MESSAGE][4/23/2016 3:09:06 AM] [OmdbResult.GetScore ln 205] - American Graffiti (1973) ratings:
-[MESSAGE][4/23/2016 3:09:06 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
+[MESSAGE][5/7/2016 12:32:51 AM] [OmdbResult.GetScore ln 222] - American Graffiti (1973) ratings:
+[MESSAGE][5/7/2016 12:32:51 AM] [OmdbResult.GetScore ln 223] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
   -Imdb: Valid? True. Weighted=22.5 Unweighted=75 Weight=0.3. 
   -RtFresh: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
   -RtRating: Valid? True. Weighted=8.4 Unweighted=84 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:06 AM] [OmdbResult.GetScore ln 208] - Total rating = 86.4
-[MESSAGE][4/23/2016 3:09:06 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:06 AM] [OmdbResult.GetScore ln 212] - Overall rating: 86.4
-[MESSAGE][4/23/2016 3:09:06 AM] [DirRename.Rename ln 38] - For 86.4, American Graffiti (1973) IMDB-7.5. RT=95%.84, Meta-90, new name = 86.4, American Graffiti (1973) [110 min] IMDB-7.5. RT=95%.84, Meta-90
-[MESSAGE][4/23/2016 3:09:06 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\86.4, American Graffiti (1973) [110 min] IMDB-7.5. RT=95%.84, Meta-90\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:07 AM] [OmdbResult.GetScore ln 205] - The Enigma of Kaspar Hauser (1974) ratings:
-[MESSAGE][4/23/2016 3:09:07 AM] [OmdbResult.GetScore ln 206] - Imdb: Valid? True. Weighted=23.7 Unweighted=79 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:07 AM] [OmdbResult.GetScore ln 208] - Total rating = 60.5000002861023
-[MESSAGE][4/23/2016 3:09:07 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.7
-[MESSAGE][4/23/2016 3:09:07 AM] [OmdbResult.GetScore ln 212] - Overall rating: 86.4
-[MESSAGE][4/23/2016 3:09:07 AM] [OmdbSearch.Query ln 27] - The Enigma of Kaspar Hauser (1974). Score = 86.4
+[MESSAGE][5/7/2016 12:32:51 AM] [OmdbResult.GetScore ln 225] - Total rating = 86.4
+[MESSAGE][5/7/2016 12:32:51 AM] [OmdbResult.GetScore ln 227] - Total weight = 1
+[MESSAGE][5/7/2016 12:32:51 AM] [OmdbResult.GetScore ln 229] - Overall rating: 86.4
+[MESSAGE][5/7/2016 12:32:52 AM] [OmdbSearch.PrivateQuery ln 43] - American Graffiti (1973). Score = 86.4
 Std:
-  IMDB=79.0000009536743
-  Metacritic=0
-  Rotten Tomatoes: 95%, Rating=83
-[MESSAGE][4/23/2016 3:09:07 AM] [OmdbResult.GetScore ln 205] - The Enigma of Kaspar Hauser (1974) ratings:
-[MESSAGE][4/23/2016 3:09:07 AM] [OmdbResult.GetScore ln 206] - Imdb: Valid? True. Weighted=23.7 Unweighted=79 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:07 AM] [OmdbResult.GetScore ln 208] - Total rating = 60.5000002861023
-[MESSAGE][4/23/2016 3:09:07 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.7
-[MESSAGE][4/23/2016 3:09:07 AM] [OmdbResult.GetScore ln 212] - Overall rating: 86.4
-[MESSAGE][4/23/2016 3:09:08 AM] [DirRename.Rename ln 38] - For 86.4, The Enigma of Kaspar Hauser (1974) IMDB-7.9. RT=95%.83, Meta-0, new name = 86.4, The Enigma of Kaspar Hauser (1974) [110 min] IMDB-7.9. RT=95%.83, Meta-0
-[MESSAGE][4/23/2016 3:09:08 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\86.4, The Enigma of Kaspar Hauser (1974) [110 min] IMDB-7.9. RT=95%.83, Meta-0\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:08 AM] [OmdbResult.GetScore ln 205] - Short Term 12 (2013) ratings:
-[MESSAGE][4/23/2016 3:09:08 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24 Unweighted=80 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=29.7 Unweighted=99 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:08 AM] [OmdbResult.GetScore ln 208] - Total rating = 86.6
-[MESSAGE][4/23/2016 3:09:08 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:08 AM] [OmdbResult.GetScore ln 212] - Overall rating: 86.6
-[MESSAGE][4/23/2016 3:09:09 AM] [OmdbSearch.Query ln 27] - Short Term 12 (2013). Score = 86.6
-Std:
-  IMDB=80
-  Metacritic=82
-  Rotten Tomatoes: 99%, Rating=83
-[MESSAGE][4/23/2016 3:09:09 AM] [OmdbResult.GetScore ln 205] - Short Term 12 (2013) ratings:
-[MESSAGE][4/23/2016 3:09:09 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24 Unweighted=80 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=29.7 Unweighted=99 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:09 AM] [OmdbResult.GetScore ln 208] - Total rating = 86.6
-[MESSAGE][4/23/2016 3:09:09 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:09 AM] [OmdbResult.GetScore ln 212] - Overall rating: 86.6
-[MESSAGE][4/23/2016 3:09:09 AM] [DirRename.Rename ln 38] - For 86.6, Short Term 12 (2013) IMDB-8. RT=99%.83, Meta-82, new name = 86.6, Short Term 12 (2013) [96 min] IMDB-8. RT=99%.83, Meta-82
-[MESSAGE][4/23/2016 3:09:09 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\86.6, Short Term 12 (2013) [96 min] IMDB-8. RT=99%.83, Meta-82\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:13 AM] [OmdbResult.GetScore ln 205] - The Lady Vanishes (1938) ratings:
-[MESSAGE][4/23/2016 3:09:13 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24 Unweighted=80 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=29.4 Unweighted=98 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:13 AM] [OmdbResult.GetScore ln 208] - Total rating = 86.6
-[MESSAGE][4/23/2016 3:09:13 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:13 AM] [OmdbResult.GetScore ln 212] - Overall rating: 86.6
-[MESSAGE][4/23/2016 3:09:14 AM] [OmdbSearch.Query ln 27] - The Lady Vanishes (1938). Score = 86.6
-Std:
-  IMDB=80
-  Metacritic=83
-  Rotten Tomatoes: 98%, Rating=83
-[MESSAGE][4/23/2016 3:09:14 AM] [OmdbResult.GetScore ln 205] - The Lady Vanishes (1938) ratings:
-[MESSAGE][4/23/2016 3:09:14 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24 Unweighted=80 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=29.4 Unweighted=98 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:14 AM] [OmdbResult.GetScore ln 208] - Total rating = 86.6
-[MESSAGE][4/23/2016 3:09:14 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:14 AM] [OmdbResult.GetScore ln 212] - Overall rating: 86.6
-[MESSAGE][4/23/2016 3:09:15 AM] [DirRename.Rename ln 38] - For 86.6, The Lady Vanishes (1938) IMDB-8. RT=98%.83, Meta-83, new name = 86.6, The Lady Vanishes (1938) [96 min] IMDB-8. RT=98%.83, Meta-83
-[MESSAGE][4/23/2016 3:09:15 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\86.6, The Lady Vanishes (1938) [96 min] IMDB-8. RT=98%.83, Meta-83\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:16 AM] [OmdbResult.GetScore ln 205] - The King of Kong: A Fistful of Quarters (2007) ratings:
-[MESSAGE][4/23/2016 3:09:16 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=29.1 Unweighted=97 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.1 Unweighted=81 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:16 AM] [OmdbResult.GetScore ln 208] - Total rating = 86.6999994277954
-[MESSAGE][4/23/2016 3:09:16 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:16 AM] [OmdbResult.GetScore ln 212] - Overall rating: 86.7
-[MESSAGE][4/23/2016 3:09:16 AM] [OmdbSearch.Query ln 27] - The King of Kong: A Fistful of Quarters (2007). Score = 86.7
-Std:
-  IMDB=81.9999980926514
-  Metacritic=83
-  Rotten Tomatoes: 97%, Rating=81
-[MESSAGE][4/23/2016 3:09:17 AM] [OmdbResult.GetScore ln 205] - The King of Kong: A Fistful of Quarters (2007) ratings:
-[MESSAGE][4/23/2016 3:09:17 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=29.1 Unweighted=97 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.1 Unweighted=81 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:17 AM] [OmdbResult.GetScore ln 208] - Total rating = 86.6999994277954
-[MESSAGE][4/23/2016 3:09:17 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:17 AM] [OmdbResult.GetScore ln 212] - Overall rating: 86.7
-[MESSAGE][4/23/2016 3:09:17 AM] [DirRename.Rename ln 38] - For 86.7, The King of Kong A Fistful of Quarters (2007) IMDB-8.2. RT=97%.81, Meta-83, new name = 86.7, The King of Kong A Fistful of Quarters (2007) [79 min] IMDB-8.2. RT=97%.81, Meta-83
-[MESSAGE][4/23/2016 3:09:17 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\86.7, The King of Kong A Fistful of Quarters (2007) [79 min] IMDB-8.2. RT=97%.81, Meta-83\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:18 AM] [OmdbResult.GetScore ln 205] - Zero Dark Thirty (2012) ratings:
-[MESSAGE][4/23/2016 3:09:18 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=22.2 Unweighted=74 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=27.9 Unweighted=93 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.6 Unweighted=86 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:18 AM] [OmdbResult.GetScore ln 208] - Total rating = 87.2000002861023
-[MESSAGE][4/23/2016 3:09:18 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:18 AM] [OmdbResult.GetScore ln 212] - Overall rating: 87.2
-[MESSAGE][4/23/2016 3:09:18 AM] [OmdbSearch.Query ln 27] - Zero Dark Thirty (2012). Score = 87.2
-Std:
-  IMDB=74.0000009536743
-  Metacritic=95
-  Rotten Tomatoes: 93%, Rating=86
-[MESSAGE][4/23/2016 3:09:18 AM] [OmdbResult.GetScore ln 205] - Zero Dark Thirty (2012) ratings:
-[MESSAGE][4/23/2016 3:09:18 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=22.2 Unweighted=74 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=27.9 Unweighted=93 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.6 Unweighted=86 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:18 AM] [OmdbResult.GetScore ln 208] - Total rating = 87.2000002861023
-[MESSAGE][4/23/2016 3:09:18 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:18 AM] [OmdbResult.GetScore ln 212] - Overall rating: 87.2
-[MESSAGE][4/23/2016 3:09:19 AM] [DirRename.Rename ln 38] - For 87.2, Zero Dark Thirty (2012) IMDB-7.4. RT=93%.86, Meta-95, new name = 87.2, Zero Dark Thirty (2012) [157 min] IMDB-7.4. RT=93%.86, Meta-95
-[MESSAGE][4/23/2016 3:09:19 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\87.2, Zero Dark Thirty (2012) [157 min] IMDB-7.4. RT=93%.86, Meta-95\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:23 AM] [OmdbResult.GetScore ln 205] - The Americans (2013–) ratings:
-[MESSAGE][4/23/2016 3:09:23 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27.6 Unweighted=92 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-[MESSAGE][4/23/2016 3:09:23 AM] [OmdbResult.GetScore ln 208] - Total rating = 52.5000005722046
-[MESSAGE][4/23/2016 3:09:23 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.6
-[MESSAGE][4/23/2016 3:09:23 AM] [OmdbResult.GetScore ln 212] - Overall rating: 87.5
-[MESSAGE][4/23/2016 3:09:24 AM] [OmdbSearch.Query ln 27] - The Americans (2013–). Score = 87.5
-Std:
-  IMDB=83.0000019073486
-  Metacritic=92
-  Rotten Tomatoes: %, Rating=
-[MESSAGE][4/23/2016 3:09:24 AM] [OmdbResult.GetScore ln 205] - The Americans (2013–) ratings:
-[MESSAGE][4/23/2016 3:09:24 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27.6 Unweighted=92 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-[MESSAGE][4/23/2016 3:09:24 AM] [OmdbResult.GetScore ln 208] - Total rating = 52.5000005722046
-[MESSAGE][4/23/2016 3:09:24 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.6
-[MESSAGE][4/23/2016 3:09:24 AM] [OmdbResult.GetScore ln 212] - Overall rating: 87.5
-[MESSAGE][4/23/2016 3:09:25 AM] [DirRename.Rename ln 38] - For 87.5, The Americans (2013–) IMDB-8.3. RT=0%.0, Meta-92, new name = 87.5, The Americans (2013–) [44 min] IMDB-8.3. RT=0%.0, Meta-92
-[MESSAGE][4/23/2016 3:09:25 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\87.5, The Americans (2013–) [44 min] IMDB-8.3. RT=0%.0, Meta-92\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:26 AM] [OmdbResult.GetScore ln 205] - The Mirror (1975) ratings:
-[MESSAGE][4/23/2016 3:09:26 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24 Unweighted=80 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=30 Unweighted=100 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=9.3 Unweighted=93 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:26 AM] [OmdbResult.GetScore ln 208] - Total rating = 87.8999994277954
-[MESSAGE][4/23/2016 3:09:26 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:26 AM] [OmdbResult.GetScore ln 212] - Overall rating: 87.9
-[MESSAGE][4/23/2016 3:09:26 AM] [OmdbSearch.Query ln 27] - The Mirror (1975). Score = 87.9
-Std:
-  IMDB=81.9999980926514
-  Metacritic=80
-  Rotten Tomatoes: 100%, Rating=93
-[MESSAGE][4/23/2016 3:09:27 AM] [OmdbResult.GetScore ln 205] - The Mirror (1975) ratings:
-[MESSAGE][4/23/2016 3:09:27 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=24 Unweighted=80 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=30 Unweighted=100 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=9.3 Unweighted=93 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:27 AM] [OmdbResult.GetScore ln 208] - Total rating = 87.8999994277954
-[MESSAGE][4/23/2016 3:09:27 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:27 AM] [OmdbResult.GetScore ln 212] - Overall rating: 87.9
-[MESSAGE][4/23/2016 3:09:27 AM] [DirRename.Rename ln 38] - For 87.9, The Mirror (1975) IMDB-8.2. RT=100%.93, Meta-80, new name = 87.9, The Mirror (1975) [108 min] IMDB-8.2. RT=100%.93, Meta-80
-[MESSAGE][4/23/2016 3:09:27 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\87.9, The Mirror (1975) [108 min] IMDB-8.2. RT=100%.93, Meta-80\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:29 AM] [OmdbResult.GetScore ln 205] - Amour (2012) ratings:
-[MESSAGE][4/23/2016 3:09:29 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=28.2 Unweighted=94 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=23.7 Unweighted=79 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=27.9 Unweighted=93 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.7 Unweighted=87 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:29 AM] [OmdbResult.GetScore ln 208] - Total rating = 88.5000002861023
-[MESSAGE][4/23/2016 3:09:29 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:29 AM] [OmdbResult.GetScore ln 212] - Overall rating: 88.5
-[MESSAGE][4/23/2016 3:09:29 AM] [OmdbSearch.Query ln 27] - Amour (2012). Score = 88.5
-Std:
-  IMDB=79.0000009536743
-  Metacritic=94
-  Rotten Tomatoes: 93%, Rating=87
-[MESSAGE][4/23/2016 3:09:30 AM] [OmdbResult.GetScore ln 205] - Amour (2012) ratings:
-[MESSAGE][4/23/2016 3:09:30 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=28.2 Unweighted=94 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=23.7 Unweighted=79 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=27.9 Unweighted=93 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.7 Unweighted=87 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:30 AM] [OmdbResult.GetScore ln 208] - Total rating = 88.5000002861023
-[MESSAGE][4/23/2016 3:09:30 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:30 AM] [OmdbResult.GetScore ln 212] - Overall rating: 88.5
-[MESSAGE][4/23/2016 3:09:30 AM] [DirRename.Rename ln 38] - For 88.5, Amour (2012) IMDB-7.9. RT=93%.87, Meta-94, new name = 88.5, Amour (2012) [127 min] IMDB-7.9. RT=93%.87, Meta-94
-[MESSAGE][4/23/2016 3:09:30 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\88.5, Amour (2012) [127 min] IMDB-7.9. RT=93%.87, Meta-94\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:32 AM] [OmdbResult.GetScore ln 205] - Crumb (1994) ratings:
-[MESSAGE][4/23/2016 3:09:32 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27.9 Unweighted=93 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24 Unweighted=80 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.4 Unweighted=84 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:32 AM] [OmdbResult.GetScore ln 208] - Total rating = 88.8
-[MESSAGE][4/23/2016 3:09:32 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:32 AM] [OmdbResult.GetScore ln 212] - Overall rating: 88.8
-[MESSAGE][4/23/2016 3:09:32 AM] [OmdbSearch.Query ln 27] - Crumb (1994). Score = 88.8
-Std:
-  IMDB=80
-  Metacritic=93
-  Rotten Tomatoes: 95%, Rating=84
-[MESSAGE][4/23/2016 3:09:32 AM] [OmdbResult.GetScore ln 205] - Crumb (1994) ratings:
-[MESSAGE][4/23/2016 3:09:32 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27.9 Unweighted=93 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24 Unweighted=80 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.4 Unweighted=84 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:32 AM] [OmdbResult.GetScore ln 208] - Total rating = 88.8
-[MESSAGE][4/23/2016 3:09:32 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:32 AM] [OmdbResult.GetScore ln 212] - Overall rating: 88.8
-[MESSAGE][4/23/2016 3:09:33 AM] [DirRename.Rename ln 38] - For 88.8, Crumb (1994) IMDB-8. RT=95%.84, Meta-93, new name = 88.8, Crumb (1994) [119 min] IMDB-8. RT=95%.84, Meta-93
-[MESSAGE][4/23/2016 3:09:33 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\88.8, Crumb (1994) [119 min] IMDB-8. RT=95%.84, Meta-93\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:34 AM] [OmdbResult.GetScore ln 205] - The Best of Youth (2003) ratings:
-[MESSAGE][4/23/2016 3:09:34 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=26.7 Unweighted=89 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=25.5 Unweighted=85 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.4 Unweighted=84 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:34 AM] [OmdbResult.GetScore ln 208] - Total rating = 89.1
-[MESSAGE][4/23/2016 3:09:34 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:34 AM] [OmdbResult.GetScore ln 212] - Overall rating: 89.1
-[MESSAGE][4/23/2016 3:09:34 AM] [OmdbSearch.Query ln 27] - The Best of Youth (2003). Score = 89.1
-Std:
-  IMDB=85
-  Metacritic=89
-  Rotten Tomatoes: 95%, Rating=84
-[MESSAGE][4/23/2016 3:09:34 AM] [OmdbResult.GetScore ln 205] - The Best of Youth (2003) ratings:
-[MESSAGE][4/23/2016 3:09:34 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=26.7 Unweighted=89 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=25.5 Unweighted=85 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.4 Unweighted=84 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:34 AM] [OmdbResult.GetScore ln 208] - Total rating = 89.1
-[MESSAGE][4/23/2016 3:09:34 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:34 AM] [OmdbResult.GetScore ln 212] - Overall rating: 89.1
-[MESSAGE][4/23/2016 3:09:35 AM] [DirRename.Rename ln 38] - For 89.1, The Best of Youth (2003) IMDB-8.5. RT=95%.84, Meta-89, new name = 89.1, The Best of Youth (2003) [383 min] IMDB-8.5. RT=95%.84, Meta-89
-[MESSAGE][4/23/2016 3:09:35 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\89.1, The Best of Youth (2003) [383 min] IMDB-8.5. RT=95%.84, Meta-89\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:39 AM] [OmdbResult.GetScore ln 205] - Paris, Texas (1984) ratings:
-[MESSAGE][4/23/2016 3:09:39 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.3 Unweighted=81 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=30 Unweighted=100 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:39 AM] [OmdbResult.GetScore ln 208] - Total rating = 89.6000011444092
-[MESSAGE][4/23/2016 3:09:39 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:39 AM] [OmdbResult.GetScore ln 212] - Overall rating: 89.6
-[MESSAGE][4/23/2016 3:09:39 AM] [OmdbSearch.Query ln 27] - Paris, Texas (1984). Score = 89.6
-Std:
-  IMDB=81.0000038146973
+  IMDB=75
   Metacritic=90
-  Rotten Tomatoes: 100%, Rating=83
-[MESSAGE][4/23/2016 3:09:40 AM] [OmdbResult.GetScore ln 205] - Paris, Texas (1984) ratings:
-[MESSAGE][4/23/2016 3:09:40 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.3 Unweighted=81 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=30 Unweighted=100 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.3 Unweighted=83 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:40 AM] [OmdbResult.GetScore ln 208] - Total rating = 89.6000011444092
-[MESSAGE][4/23/2016 3:09:40 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:40 AM] [OmdbResult.GetScore ln 212] - Overall rating: 89.6
-[MESSAGE][4/23/2016 3:09:40 AM] [DirRename.Rename ln 38] - For 89.6, Paris, Texas (1984) IMDB-8.1. RT=100%.83, Meta-90, new name = 89.6, Paris, Texas (1984) [147 min] IMDB-8.1. RT=100%.83, Meta-90
-[MESSAGE][4/23/2016 3:09:40 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\89.6, Paris, Texas (1984) [147 min] IMDB-8.1. RT=100%.83, Meta-90\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:45 AM] [OmdbResult.GetScore ln 205] - The Red Shoes (1948) ratings:
-[MESSAGE][4/23/2016 3:09:45 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.8 Unweighted=96 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=9 Unweighted=90 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:45 AM] [OmdbResult.GetScore ln 208] - Total rating = 89.7000005722046
-[MESSAGE][4/23/2016 3:09:45 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:45 AM] [OmdbResult.GetScore ln 212] - Overall rating: 89.7
-[MESSAGE][4/23/2016 3:09:45 AM] [OmdbSearch.Query ln 27] - The Red Shoes (1948). Score = 89.7
+  Rotten Tomatoes: 95%, Rating=84
+[MESSAGE][5/7/2016 12:32:52 AM] [OmdbResult.GetScore ln 222] - American Graffiti (1973) ratings:
+[MESSAGE][5/7/2016 12:32:52 AM] [OmdbResult.GetScore ln 223] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
+  -Imdb: Valid? True. Weighted=22.5 Unweighted=75 Weight=0.3. 
+  -RtFresh: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
+  -RtRating: Valid? True. Weighted=8.4 Unweighted=84 Weight=0.1. 
+[MESSAGE][5/7/2016 12:32:52 AM] [OmdbResult.GetScore ln 225] - Total rating = 86.4
+[MESSAGE][5/7/2016 12:32:52 AM] [OmdbResult.GetScore ln 227] - Total weight = 1
+[MESSAGE][5/7/2016 12:32:52 AM] [OmdbResult.GetScore ln 229] - Overall rating: 86.4
+[MESSAGE][5/7/2016 12:32:53 AM] [OmdbResult.GetScore ln 222] - American Graffiti (1973) ratings:
+[MESSAGE][5/7/2016 12:32:53 AM] [OmdbResult.GetScore ln 223] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
+  -Imdb: Valid? True. Weighted=22.5 Unweighted=75 Weight=0.3. 
+  -RtFresh: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
+  -RtRating: Valid? True. Weighted=8.4 Unweighted=84 Weight=0.1. 
+[MESSAGE][5/7/2016 12:32:53 AM] [OmdbResult.GetScore ln 225] - Total rating = 86.4
+[MESSAGE][5/7/2016 12:32:53 AM] [OmdbResult.GetScore ln 227] - Total weight = 1
+[MESSAGE][5/7/2016 12:32:53 AM] [OmdbResult.GetScore ln 229] - Overall rating: 86.4
+[MESSAGE][5/7/2016 12:32:53 AM] [DirRename.Search ln 125] - For dir American Graffiti (1973) OMDB result = American Graffiti (1973). Score = 86.4
 Std:
-  IMDB=83.0000019073486
+  IMDB=75
   Metacritic=90
-  Rotten Tomatoes: 96%, Rating=90
-[MESSAGE][4/23/2016 3:09:46 AM] [OmdbResult.GetScore ln 205] - The Red Shoes (1948) ratings:
-[MESSAGE][4/23/2016 3:09:46 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.8 Unweighted=96 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=9 Unweighted=90 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:46 AM] [OmdbResult.GetScore ln 208] - Total rating = 89.7000005722046
-[MESSAGE][4/23/2016 3:09:46 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:46 AM] [OmdbResult.GetScore ln 212] - Overall rating: 89.7
-[MESSAGE][4/23/2016 3:09:46 AM] [DirRename.Rename ln 38] - For 89.7, The Red Shoes (1948) IMDB-8.3. RT=96%.90, Meta-90, new name = 89.7, The Red Shoes (1948) [133 min] IMDB-8.3. RT=96%.90, Meta-90
-[MESSAGE][4/23/2016 3:09:46 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\89.7, The Red Shoes (1948) [133 min] IMDB-8.3. RT=96%.90, Meta-90\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:47 AM] [OmdbResult.GetScore ln 205] - It Happened One Night (1934) ratings:
-[MESSAGE][4/23/2016 3:09:47 AM] [OmdbResult.GetScore ln 206] - Imdb: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=29.4 Unweighted=98 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.9 Unweighted=89 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:47 AM] [OmdbResult.GetScore ln 208] - Total rating = 62.8999994277954
-[MESSAGE][4/23/2016 3:09:47 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.7
-[MESSAGE][4/23/2016 3:09:47 AM] [OmdbResult.GetScore ln 212] - Overall rating: 89.9
-[MESSAGE][4/23/2016 3:09:47 AM] [OmdbSearch.Query ln 27] - It Happened One Night (1934). Score = 89.9
-Std:
-  IMDB=81.9999980926514
-  Metacritic=0
-  Rotten Tomatoes: 98%, Rating=89
-[MESSAGE][4/23/2016 3:09:48 AM] [OmdbResult.GetScore ln 205] - It Happened One Night (1934) ratings:
-[MESSAGE][4/23/2016 3:09:48 AM] [OmdbResult.GetScore ln 206] - Imdb: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=29.4 Unweighted=98 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.9 Unweighted=89 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:48 AM] [OmdbResult.GetScore ln 208] - Total rating = 62.8999994277954
-[MESSAGE][4/23/2016 3:09:48 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.7
-[MESSAGE][4/23/2016 3:09:48 AM] [OmdbResult.GetScore ln 212] - Overall rating: 89.9
-[MESSAGE][4/23/2016 3:09:48 AM] [DirRename.Rename ln 38] - For 89.9, It Happened One Night (1934) IMDB-8.2. RT=98%.89, Meta-0, new name = 89.9, It Happened One Night (1934) [105 min] IMDB-8.2. RT=98%.89, Meta-0
-[MESSAGE][4/23/2016 3:09:48 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\89.9, It Happened One Night (1934) [105 min] IMDB-8.2. RT=98%.89, Meta-0\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:49 AM] [OmdbResult.GetScore ln 205] - Rififi (1955) ratings:
-[MESSAGE][4/23/2016 3:09:49 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=29.1 Unweighted=97 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.2 Unweighted=94 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.2 Unweighted=82 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:49 AM] [OmdbResult.GetScore ln 208] - Total rating = 90.0999994277954
-[MESSAGE][4/23/2016 3:09:49 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:49 AM] [OmdbResult.GetScore ln 212] - Overall rating: 90.1
-[MESSAGE][4/23/2016 3:09:49 AM] [OmdbSearch.Query ln 27] - Rififi (1955). Score = 90.1
-Std:
-  IMDB=81.9999980926514
-  Metacritic=97
-  Rotten Tomatoes: 94%, Rating=82
-[MESSAGE][4/23/2016 3:09:50 AM] [OmdbResult.GetScore ln 205] - Rififi (1955) ratings:
-[MESSAGE][4/23/2016 3:09:50 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=29.1 Unweighted=97 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.2 Unweighted=94 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.2 Unweighted=82 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:50 AM] [OmdbResult.GetScore ln 208] - Total rating = 90.0999994277954
-[MESSAGE][4/23/2016 3:09:50 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:50 AM] [OmdbResult.GetScore ln 212] - Overall rating: 90.1
-[MESSAGE][4/23/2016 3:09:50 AM] [DirRename.Rename ln 38] - For 90.1, Rififi (1955) IMDB-8.2. RT=94%.82, Meta-97, new name = 90.1, Rififi (1955) [122 min] IMDB-8.2. RT=94%.82, Meta-97
-[MESSAGE][4/23/2016 3:09:50 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\90.1, Rififi (1955) [122 min] IMDB-8.2. RT=94%.82, Meta-97\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:51 AM] [OmdbResult.GetScore ln 205] - Pan's Labyrinth (2006) ratings:
-[MESSAGE][4/23/2016 3:09:51 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=29.4 Unweighted=98 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
+  Rotten Tomatoes: 95%, Rating=84 
+[MESSAGE][5/7/2016 12:32:54 AM] [OmdbResult.GetScore ln 222] - American Graffiti (1973) ratings:
+[MESSAGE][5/7/2016 12:32:54 AM] [OmdbResult.GetScore ln 223] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
+  -Imdb: Valid? True. Weighted=22.5 Unweighted=75 Weight=0.3. 
   -RtFresh: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.6 Unweighted=86 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:51 AM] [OmdbResult.GetScore ln 208] - Total rating = 91.0999994277954
-[MESSAGE][4/23/2016 3:09:51 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:51 AM] [OmdbResult.GetScore ln 212] - Overall rating: 91.1
-[MESSAGE][4/23/2016 3:09:51 AM] [OmdbSearch.Query ln 27] - Pan's Labyrinth (2006). Score = 91.1
-Std:
-  IMDB=81.9999980926514
-  Metacritic=98
-  Rotten Tomatoes: 95%, Rating=86
-[MESSAGE][4/23/2016 3:09:51 AM] [OmdbResult.GetScore ln 205] - Pan's Labyrinth (2006) ratings:
-[MESSAGE][4/23/2016 3:09:51 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=29.4 Unweighted=98 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.6 Unweighted=82 Weight=0.3. 
+  -RtRating: Valid? True. Weighted=8.4 Unweighted=84 Weight=0.1. 
+[MESSAGE][5/7/2016 12:32:54 AM] [OmdbResult.GetScore ln 225] - Total rating = 86.4
+[MESSAGE][5/7/2016 12:32:54 AM] [OmdbResult.GetScore ln 227] - Total weight = 1
+[MESSAGE][5/7/2016 12:32:54 AM] [OmdbResult.GetScore ln 229] - Overall rating: 86.4
+[MESSAGE][5/7/2016 12:32:54 AM] [DirRename.Rename ln 38] - For American Graffiti (1973), new name = 86.4, American Graffiti (1973) [110 min] IMDB-7.5. RT=95%.84, Meta-90
+[MESSAGE][5/7/2016 12:32:55 AM] [OmdbResult.GetScore ln 222] - American Graffiti (1973) ratings:
+[MESSAGE][5/7/2016 12:32:55 AM] [OmdbResult.GetScore ln 223] - MetaCritic: Valid? True. Weighted=27 Unweighted=90 Weight=0.3. 
+  -Imdb: Valid? True. Weighted=22.5 Unweighted=75 Weight=0.3. 
   -RtFresh: Valid? True. Weighted=28.5 Unweighted=95 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.6 Unweighted=86 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:51 AM] [OmdbResult.GetScore ln 208] - Total rating = 91.0999994277954
-[MESSAGE][4/23/2016 3:09:51 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:51 AM] [OmdbResult.GetScore ln 212] - Overall rating: 91.1
-[MESSAGE][4/23/2016 3:09:52 AM] [DirRename.Rename ln 38] - For 91.1, Pan's Labyrinth (2006) IMDB-8.2. RT=95%.86, Meta-98, new name = 91.1, Pan's Labyrinth (2006) [118 min] IMDB-8.2. RT=95%.86, Meta-98
-[MESSAGE][4/23/2016 3:09:52 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\91.1, Pan's Labyrinth (2006) [118 min] IMDB-8.2. RT=95%.86, Meta-98\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:52 AM] [OmdbResult.GetScore ln 205] - Hoop Dreams (1994) ratings:
-[MESSAGE][4/23/2016 3:09:52 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=29.4 Unweighted=98 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=29.4 Unweighted=98 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.7 Unweighted=87 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:52 AM] [OmdbResult.GetScore ln 208] - Total rating = 92.4000005722046
-[MESSAGE][4/23/2016 3:09:52 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:52 AM] [OmdbResult.GetScore ln 212] - Overall rating: 92.4
-[MESSAGE][4/23/2016 3:09:53 AM] [OmdbSearch.Query ln 27] - Hoop Dreams (1994). Score = 92.4
-Std:
-  IMDB=83.0000019073486
-  Metacritic=98
-  Rotten Tomatoes: 98%, Rating=87
-[MESSAGE][4/23/2016 3:09:53 AM] [OmdbResult.GetScore ln 205] - Hoop Dreams (1994) ratings:
-[MESSAGE][4/23/2016 3:09:53 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=29.4 Unweighted=98 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=29.4 Unweighted=98 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.7 Unweighted=87 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:53 AM] [OmdbResult.GetScore ln 208] - Total rating = 92.4000005722046
-[MESSAGE][4/23/2016 3:09:53 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:53 AM] [OmdbResult.GetScore ln 212] - Overall rating: 92.4
-[MESSAGE][4/23/2016 3:09:54 AM] [DirRename.Rename ln 38] - For 92.4, Hoop Dreams (1994) IMDB-8.3. RT=98%.87, Meta-98, new name = 92.4, Hoop Dreams (1994) [170 min] IMDB-8.3. RT=98%.87, Meta-98
-[MESSAGE][4/23/2016 3:09:54 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\92.4, Hoop Dreams (1994) [170 min] IMDB-8.3. RT=98%.87, Meta-98\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:54 AM] [OmdbResult.GetScore ln 205] - Schindler's List (1993) ratings:
-[MESSAGE][4/23/2016 3:09:54 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27.9 Unweighted=93 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=26.7 Unweighted=89 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.8 Unweighted=96 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=9 Unweighted=90 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:54 AM] [OmdbResult.GetScore ln 208] - Total rating = 92.3999988555908
-[MESSAGE][4/23/2016 3:09:54 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:54 AM] [OmdbResult.GetScore ln 212] - Overall rating: 92.4
-[MESSAGE][4/23/2016 3:09:55 AM] [OmdbSearch.Query ln 27] - Schindler's List (1993). Score = 92.4
-Std:
-  IMDB=88.9999961853027
-  Metacritic=93
-  Rotten Tomatoes: 96%, Rating=90
-[MESSAGE][4/23/2016 3:09:55 AM] [OmdbResult.GetScore ln 205] - Schindler's List (1993) ratings:
-[MESSAGE][4/23/2016 3:09:55 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27.9 Unweighted=93 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=26.7 Unweighted=89 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=28.8 Unweighted=96 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=9 Unweighted=90 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:55 AM] [OmdbResult.GetScore ln 208] - Total rating = 92.3999988555908
-[MESSAGE][4/23/2016 3:09:55 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:55 AM] [OmdbResult.GetScore ln 212] - Overall rating: 92.4
-[MESSAGE][4/23/2016 3:09:55 AM] [DirRename.Rename ln 38] - For 92.4, Schindler's List (1993) IMDB-8.9. RT=96%.90, Meta-93, new name = 92.4, Schindler's List (1993) [195 min] IMDB-8.9. RT=96%.90, Meta-93
-[MESSAGE][4/23/2016 3:09:55 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\92.4, Schindler's List (1993) [195 min] IMDB-8.9. RT=96%.90, Meta-93\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:09:56 AM] [OmdbResult.GetScore ln 205] - Metropolis (1927) ratings:
-[MESSAGE][4/23/2016 3:09:56 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=29.4 Unweighted=98 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=29.7 Unweighted=99 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=9.1 Unweighted=91 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:56 AM] [OmdbResult.GetScore ln 208] - Total rating = 93.1000005722046
-[MESSAGE][4/23/2016 3:09:56 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:56 AM] [OmdbResult.GetScore ln 212] - Overall rating: 93.1
-[MESSAGE][4/23/2016 3:09:57 AM] [OmdbSearch.Query ln 27] - Metropolis (1927). Score = 93.1
-Std:
-  IMDB=83.0000019073486
-  Metacritic=98
-  Rotten Tomatoes: 99%, Rating=91
-[MESSAGE][4/23/2016 3:09:57 AM] [OmdbResult.GetScore ln 205] - Metropolis (1927) ratings:
-[MESSAGE][4/23/2016 3:09:57 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=29.4 Unweighted=98 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=29.7 Unweighted=99 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=9.1 Unweighted=91 Weight=0.1. 
-[MESSAGE][4/23/2016 3:09:57 AM] [OmdbResult.GetScore ln 208] - Total rating = 93.1000005722046
-[MESSAGE][4/23/2016 3:09:57 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:09:57 AM] [OmdbResult.GetScore ln 212] - Overall rating: 93.1
-[MESSAGE][4/23/2016 3:09:57 AM] [DirRename.Rename ln 38] - For 93.1, Metropolis (1927) IMDB-8.3. RT=99%.91, Meta-98, new name = 93.1, Metropolis (1927) [153 min] IMDB-8.3. RT=99%.91, Meta-98
-[MESSAGE][4/23/2016 3:09:57 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\93.1, Metropolis (1927) [153 min] IMDB-8.3. RT=99%.91, Meta-98\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:10:01 AM] [OmdbResult.GetScore ln 205] - Night and Fog (1955) ratings:
-[MESSAGE][4/23/2016 3:10:01 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=29.7 Unweighted=99 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=25.8 Unweighted=86 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=30 Unweighted=100 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.8 Unweighted=88 Weight=0.1. 
-[MESSAGE][4/23/2016 3:10:01 AM] [OmdbResult.GetScore ln 208] - Total rating = 94.3000011444092
-[MESSAGE][4/23/2016 3:10:01 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:10:01 AM] [OmdbResult.GetScore ln 212] - Overall rating: 94.3
-[MESSAGE][4/23/2016 3:10:02 AM] [OmdbSearch.Query ln 27] - Night and Fog (1955). Score = 94.3
-Std:
-  IMDB=86.0000038146973
-  Metacritic=99
-  Rotten Tomatoes: 100%, Rating=88
-[MESSAGE][4/23/2016 3:10:02 AM] [OmdbResult.GetScore ln 205] - Night and Fog (1955) ratings:
-[MESSAGE][4/23/2016 3:10:03 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=29.7 Unweighted=99 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=25.8 Unweighted=86 Weight=0.3. 
-  -RtFresh: Valid? True. Weighted=30 Unweighted=100 Weight=0.3. 
-  -RtRating: Valid? True. Weighted=8.8 Unweighted=88 Weight=0.1. 
-[MESSAGE][4/23/2016 3:10:03 AM] [OmdbResult.GetScore ln 208] - Total rating = 94.3000011444092
-[MESSAGE][4/23/2016 3:10:03 AM] [OmdbResult.GetScore ln 210] - Total weight = 1
-[MESSAGE][4/23/2016 3:10:03 AM] [OmdbResult.GetScore ln 212] - Overall rating: 94.3
-[MESSAGE][4/23/2016 3:10:03 AM] [DirRename.Rename ln 38] - For 94.3, Night and Fog (1955) IMDB-8.6. RT=100%.88, Meta-99, new name = 94.3, Night and Fog (1955) [32 min] IMDB-8.6. RT=100%.88, Meta-99
-[MESSAGE][4/23/2016 3:10:03 AM] [OmdbResult.WritePlotToFile ln 157] - C:\Users\Ty\Documents\Downloads\To Watch\94.3, Night and Fog (1955) [32 min] IMDB-8.6. RT=100%.88, Meta-99\MovieInfo.txt already exists. Won't write to file.
-[MESSAGE][4/23/2016 3:10:03 AM] [DirMovie.GetMovieName ln 77] - Attempting to get movie name for Ghandi (1982) [03-11-14]
-[MESSAGE][4/23/2016 3:10:03 AM] [DirMovie.GetFirstRegexMatch ln 37] - First regex match is Year at index 7
-[MESSAGE][4/23/2016 3:10:03 AM] [DirMovie.GetMovieName ln 87] - Got movie name Ghandi  for Ghandi (1982) [03-11-14]
-[CAUGHT EXCEPTION][4/23/2016 3:10:03 AM] [OmdbResult.Score ln 102] - Exception has been thrown by the target of an invocation.
-[Stack Trace][4/23/2016 3:10:03 AM] [OmdbResult.Score ln 102] -    at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
-   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
-   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
-   at AnnotateMovieDirectories.Movies.Omb.OmdbResult.<GetScore>b__97_2(PropertyInfo x) in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Omb\OmdbResult.cs:line 202
-   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
-   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector)
-   at AnnotateMovieDirectories.Movies.Omb.OmdbResult.GetScore() in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Omb\OmdbResult.cs:line 195
-   at AnnotateMovieDirectories.Movies.Omb.OmdbResult.get_Score() in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Omb\OmdbResult.cs:line 97
-[CAUGHT EXCEPTION][4/23/2016 3:10:03 AM] [OmdbSearch.Query ln 32] - Object reference not set to an instance of an object.
-[Stack Trace][4/23/2016 3:10:03 AM] [OmdbSearch.Query ln 32] -    at AnnotateMovieDirectories.Omdb.Metacritic.Meta.Query(String title, String year, String& ratingString) in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Metacritic\Meta.cs:line 36
-   at AnnotateMovieDirectories.Omdb.Metacritic.Meta.GetRating(String title, String year) in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Metacritic\Meta.cs:line 14
-   at AnnotateMovieDirectories.Movies.Omb.OmdbResult.get_Metascore() in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Omb\OmdbResult.cs:line 29
-   at AnnotateMovieDirectories.Movies.Omb.OmdbResult.ToString() in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Omb\OmdbResult.cs:line 139
-   at AnnotateMovieDirectories.Movies.Omb.OmdbSearch.Query(String name, String year) in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Movies\Omb\OmdbSearch.cs:line 27
-[MESSAGE][4/23/2016 3:10:03 AM] [DirMovie.GetMovieName ln 77] - Attempting to get movie name for Solaris
-[MESSAGE][4/23/2016 3:10:03 AM] [DirMovie.GetFirstRegexMatch ln 37] - First regex match is NoMatch at index -1
-[MESSAGE][4/23/2016 3:10:03 AM] [DirMovie.GetMovieName ln 77] - Attempting to get movie name for The.Americans.2013.S01.Season.1.Complete.1080p.WEB-DL.x264.anoXmous
-[MESSAGE][4/23/2016 3:10:03 AM] [DirMovie.GetFirstRegexMatch ln 37] - First regex match is Year at index 14
-[MESSAGE][4/23/2016 3:10:03 AM] [DirMovie.GetMovieName ln 87] - Got movie name The Americans  for The.Americans.2013.S01.Season.1.Complete.1080p.WEB-DL.x264.anoXmous
-[MESSAGE][4/23/2016 3:10:04 AM] [OmdbResult.GetScore ln 205] - The Americans (2013–) ratings:
-[MESSAGE][4/23/2016 3:10:04 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27.6 Unweighted=92 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-[MESSAGE][4/23/2016 3:10:04 AM] [OmdbResult.GetScore ln 208] - Total rating = 52.5000005722046
-[MESSAGE][4/23/2016 3:10:04 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.6
-[MESSAGE][4/23/2016 3:10:04 AM] [OmdbResult.GetScore ln 212] - Overall rating: 87.5
-[MESSAGE][4/23/2016 3:10:05 AM] [OmdbSearch.Query ln 27] - The Americans (2013–). Score = 87.5
-Std:
-  IMDB=83.0000019073486
-  Metacritic=92
-  Rotten Tomatoes: %, Rating=
-[MESSAGE][4/23/2016 3:10:07 AM] [OmdbResult.GetScore ln 205] - The Americans (2013–) ratings:
-[MESSAGE][4/23/2016 3:10:07 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27.6 Unweighted=92 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-[MESSAGE][4/23/2016 3:10:07 AM] [OmdbResult.GetScore ln 208] - Total rating = 52.5000005722046
-[MESSAGE][4/23/2016 3:10:07 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.6
-[MESSAGE][4/23/2016 3:10:07 AM] [OmdbResult.GetScore ln 212] - Overall rating: 87.5
-[MESSAGE][4/23/2016 3:10:07 AM] [OmdbResult.GetScore ln 205] - The Americans (2013–) ratings:
-[MESSAGE][4/23/2016 3:10:07 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27.6 Unweighted=92 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-[MESSAGE][4/23/2016 3:10:07 AM] [OmdbResult.GetScore ln 208] - Total rating = 52.5000005722046
-[MESSAGE][4/23/2016 3:10:07 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.6
-[MESSAGE][4/23/2016 3:10:07 AM] [OmdbResult.GetScore ln 212] - Overall rating: 87.5
-[MESSAGE][4/23/2016 3:10:08 AM] [DirRename.Search ln 125] - For dir The.Americans.2013.S01.Season.1.Complete.1080p.WEB-DL.x264.anoXmous OMDB result = The Americans (2013–). Score = 87.5
-Std:
-  IMDB=83.0000019073486
-  Metacritic=92
-  Rotten Tomatoes: %, Rating= 
-[MESSAGE][4/23/2016 3:10:08 AM] [OmdbResult.GetScore ln 205] - The Americans (2013–) ratings:
-[MESSAGE][4/23/2016 3:10:08 AM] [OmdbResult.GetScore ln 206] - MetaCritic: Valid? True. Weighted=27.6 Unweighted=92 Weight=0.3. 
-  -Imdb: Valid? True. Weighted=24.9 Unweighted=83 Weight=0.3. 
-[MESSAGE][4/23/2016 3:10:08 AM] [OmdbResult.GetScore ln 208] - Total rating = 52.5000005722046
-[MESSAGE][4/23/2016 3:10:08 AM] [OmdbResult.GetScore ln 210] - Total weight = 0.6
-[MESSAGE][4/23/2016 3:10:08 AM] [OmdbResult.GetScore ln 212] - Overall rating: 87.5
-[MESSAGE][4/23/2016 3:10:09 AM] [DirRename.Rename ln 38] - For The.Americans.2013.S01.Season.1.Complete.1080p.WEB-DL.x264.anoXmous, new name = 87.5, The Americans (2013–) [44 min] IMDB-8.3. RT=0%.0, Meta-92
-[CAUGHT EXCEPTION][4/23/2016 3:10:09 AM] [DirRename.Rename ln 47] - Cannot create a file when that file already exists.
+  -RtRating: Valid? True. Weighted=8.4 Unweighted=84 Weight=0.1. 
+[MESSAGE][5/7/2016 12:32:55 AM] [OmdbResult.GetScore ln 225] - Total rating = 86.4
+[MESSAGE][5/7/2016 12:32:55 AM] [OmdbResult.GetScore ln 227] - Total weight = 1
+[MESSAGE][5/7/2016 12:32:55 AM] [OmdbResult.GetScore ln 229] - Overall rating: 86.4
+[MESSAGE][5/7/2016 12:32:55 AM] [OmdbResult.WritePlotToFile ln 193] - Got the following top property values:
+Genre: Comedy, Drama, Music
+ShortPlot: A couple of high school grads spend one final night cruising the strip with their buddies before they go off to college.
+Director: George Lucas
+Actors: Richard Dreyfuss, Ron Howard, Paul Le Mat, Charles Martin Smith
+Plot: It's the proverbial end of the summer 1962 in a small southern California town. It's the evening before best friends and recent high school graduates, Curt Henderson and Steve Bolander, are scheduled to leave town to head to college back east. Curt, who received a lucrative local scholarship, is seen as the promise that their class holds. But Curt is having second thoughts about leaving what Steve basically sees as their dead end town. Curt's beliefs are strengthened when he spots an unknown beautiful blonde in a T-bird who mouths the words "I love you" to him. As Curt tries to find that blonde while trying to get away from a local gang who have him somewhat hostage, Curt may come to a decision about his immediate future. Outgoing class president Steve, on the other hand, wants to leave, despite meaning that he will leave girlfriend, head cheerleader and Curt's sister, Laurie Henderson, behind. Steve and Laurie spend the evening "negotiating" the state of their relationship. Meanwhile, two of their friends cruise around town for the evening. Steve has left his car to meek and mild-mannered Terry "Toad" Fields to look after during his absence. The wheels give Toad a new sense of confidence, which he uses to try and impress Debbie Dunham, a more experienced girl generally out of his league. And John Milner, who is seen as the king of the street race in his souped-up yellow deuce coupe, tries to get rid of precocious pre-teen, Carol Morrison, who has somehow become his passenger for the evening, while dealing with the challenge of bold out-of-towner, Bob Falfa.
+Language: English
+Awards: Nominated for 5 Oscars. Another 8 wins & 8 nominations.
+Score: 86.4
+[MESSAGE][5/7/2016 12:32:55 AM] [OmdbResult.WritePlotToFile ln 203] - Writing values to file:
+Genre: Comedy, Drama, Music
+ShortPlot: A couple of high school grads spend one final night cruising the strip with their buddies before they go off to college.
+Director: George Lucas
+Actors: Richard Dreyfuss, Ron Howard, Paul Le Mat, Charles Martin Smith
+Plot: It's the proverbial end of the summer 1962 in a small southern California town. It's the evening before best friends and recent high school graduates, Curt Henderson and Steve Bolander, are scheduled to leave town to head to college back east. Curt, who received a lucrative local scholarship, is seen as the promise that their class holds. But Curt is having second thoughts about leaving what Steve basically sees as their dead end town. Curt's beliefs are strengthened when he spots an unknown beautiful blonde in a T-bird who mouths the words "I love you" to him. As Curt tries to find that blonde while trying to get away from a local gang who have him somewhat hostage, Curt may come to a decision about his immediate future. Outgoing class president Steve, on the other hand, wants to leave, despite meaning that he will leave girlfriend, head cheerleader and Curt's sister, Laurie Henderson, behind. Steve and Laurie spend the evening "negotiating" the state of their relationship. Meanwhile, two of their friends cruise around town for the evening. Steve has left his car to meek and mild-mannered Terry "Toad" Fields to look after during his absence. The wheels give Toad a new sense of confidence, which he uses to try and impress Debbie Dunham, a more experienced girl generally out of his league. And John Milner, who is seen as the king of the street race in his souped-up yellow deuce coupe, tries to get rid of precocious pre-teen, Carol Morrison, who has somehow become his passenger for the evening, while dealing with the challenge of bold out-of-towner, Bob Falfa.
+Language: English
+Awards: Nominated for 5 Oscars. Another 8 wins & 8 nominations.
+Score: 86.4
 
-[Stack Trace][4/23/2016 3:10:09 AM] [DirRename.Rename ln 47] -    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.DirectoryInfo.MoveTo(String destDirName)
-   at AnnotateMovieDirectories.Extensions.DirInfo.DirRename.Rename(DirectoryInfo dir) in C:\Users\Ty\Documents\Visual Studio 2015\Projects\AnnotateMovieDirectories\AnnotateMovieDirectories\Extensions\DirInfo\DirRename.cs:line 42
+Writer: George Lucas, Gloria Katz, Willard Huyck
+tomatoUserMeter: 84
+tomatoUserRating: 3.6
+Country: USA
+tomatoURL: http://www.rottentomatoes.com/m/american_graffiti/
+StdImdbRating: 75
+ImdbLink: http://www.imdb.com/title/tt0052520/tt0069704
+[MESSAGE][5/7/2016 12:32:55 AM] [DirMovie.GetMovieName ln 77] - Attempting to get movie name for Kiki's Delivery Service
+[MESSAGE][5/7/2016 12:32:55 AM] [DirMovie.GetFirstRegexMatch ln 37] - First regex match is NoMatch at index -1
+[MESSAGE][5/7/2016 12:32:55 AM] [DirMovie.GetMovieName ln 77] - Attempting to get movie name for Solaris
+[MESSAGE][5/7/2016 12:32:55 AM] [DirMovie.GetFirstRegexMatch ln 37] - First regex match is NoMatch at index -1

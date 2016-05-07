@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" RenameBy="None">
-  <Settings Path="C:\Users\Ty\Documents\Downloads\To Watch\Test'" Overwrite="false" />
+  <Settings Path="C:\Users\Ty\Documents\Downloads\To Watch\Test'" Overwrite="false" Test="true">
+    <MetaCritic Add="true" Use="true"/>
+	<Weights Imdb=".3" RtFresh=".3" MetaCritic=".3" RtRating=".1"/>
+  </Settings>
   <Top>
     <Property>Genre</Property>
     <Property>Score</Property>

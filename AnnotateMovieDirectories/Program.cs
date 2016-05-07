@@ -16,29 +16,23 @@ namespace AnnotateMovieDirectories
 {
     class Program
     {
-        public const string ConfigPath = @"C:\Users\Ty\Documents\Downloads\To Watch\AnnotateConfig.xml";
+        public const string ConstConfigPath = @"C:\Users\Ty\Documents\Downloads\To Watch\AnnotateConfig.xml";
         public const string BackupConfigPath = "Config.xml";
         private const string DownloadPath = @"C:\Users\Ty\Documents\Downloads\To Watch";
         private static readonly DirectoryInfo DownloadDir = new DirectoryInfo(DownloadPath);
+
+        public static string ConfigPath { get; set; }
         public static Random Rand => new Random();
+
+        private static bool HasArgs { get; set; }
 
         static int Main(string[] args)
         {
             Logger.Init("Log.txt");
             Log($"Beginning annotation script");
-            if (!File.Exists(ConfigPath))
-            {
-                Error($"Config does not exist. Creating default config.");
-                if (File.Exists(BackupConfigPath))
-                {
-                    Cfg.Deserialize(BackupConfigPath);
-                }
-                Cfg.SetDefault();
-            }
-            else
-            {
-                Cfg.Deserialize(ConfigPath);
-            }
+            if (!GetConfigPath(args)) return -1;
+
+            if (!DeserializeConfig()) return -1;
             if (Cfg.Config.Settings.Test)
             {
                 CreateTestDir();
@@ -55,6 +49,43 @@ namespace AnnotateMovieDirectories
             Console.ReadLine();
             return 0;
 
+        }
+
+        private static bool DeserializeConfig()
+        {
+            if (!File.Exists(ConfigPath))
+            {
+                Error($"Config does not exist at path {ConfigPath}.");
+                return false;
+            }
+            Cfg.Deserialize(ConfigPath);
+            return true;
+        }
+
+        private static bool GetConfigPath(string[] args)
+        {
+            HasArgs = args.Any();
+
+            ConfigPath = ConstConfigPath;
+            if (HasArgs)
+            {
+                var configArg = args.FirstOrDefault(x => x.StartsWith("-config"));
+                if (configArg.IsNull())
+                {
+                    Error($"Args specified but does not contain -config. ");
+                    Error($"Args = {string.Join(" ", args)}");
+                    return false;
+                }
+                string tmpConfigPath = configArg.Split('=')[1].Trim('"');
+                if (!File.Exists(tmpConfigPath))
+                {
+                    Error($"Specified config path {tmpConfigPath} does not exist");
+                    return false;
+                }
+                ConfigPath = tmpConfigPath;
+                Log($"Config path overridden to {ConfigPath}");
+            }
+            return true;
         }
 
         private static void CreateTestDir(bool delete = true)
