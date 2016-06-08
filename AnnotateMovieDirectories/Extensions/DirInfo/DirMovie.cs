@@ -105,6 +105,31 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
             return DirRegex.ScoreRegex.IsMatch(dir.Name);
         }
 
+        public static bool GetMovieInfo(this DirectoryInfo dir, out FileInfo movieInfo)
+        {
+            string path = Path.Combine(dir.FullName, "MovieInfo.txt");
+            if (!File.Exists(path))
+            {
+                movieInfo = null;
+                return false;
+            }
+            movieInfo=new FileInfo(path);
+            return true;
+        }
+
+        public static bool GetGenres(this DirectoryInfo dir, out List<string> genres)
+        {
+            genres = new List<string>();
+            
+            FileInfo info;
+            
+            if (!dir.GetMovieInfo(out info)) return false;
+            string genreLine = info.ReadAllLines().First();
+            if (string.IsNullOrWhiteSpace(genreLine)) return false;
+            genres = genreLine.Split(':').Last().Split(',').ToList();
+            return genres.Any();
+        }
+
         public static void RenameByScore(this DirectoryInfo dir)
         {
             var movie = dir.GetMovie();
@@ -114,6 +139,13 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
         public static bool IsTv(this DirectoryInfo dir)
         {
             return DirRegex.TvRegex.IsMatch(dir.Name);
+        }
+
+        public static void AppendToName(this DirectoryInfo dir, string s)
+        {
+            string newName = $"{dir.Name} {s}";
+            string path = dir.FullName.Replace(dir.Name, newName);
+            dir.MoveTo(path);
         }
 
         public static FileInfo GetVideo(this DirectoryInfo dir)

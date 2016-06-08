@@ -1,2 +1,0 @@
-[ERROR][5/7/2016 12:32:55 AM] [DirRename.Search ln 115] - Could not get movie name for Kiki's Delivery Service
-[ERROR][5/7/2016 12:32:55 AM] [DirRename.Search ln 115] - Could not get movie name for Solaris

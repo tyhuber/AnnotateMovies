@@ -164,6 +164,13 @@ namespace AnnotateMovieDirectories.Extensions
         }
         public static string String(this FileInfo file) => file.FullName;
 
+        public static List<string> ReadAllLines(this FileInfo file)
+        {
+            file.Refresh();
+            if (!file.Exists) return null;
+            return File.ReadAllLines(file.FullName).ToList();
+        }
+
         private static string SurroundWith(char open, char close, params string[] values)
         {
             if (!values.Any()) return string.Empty;

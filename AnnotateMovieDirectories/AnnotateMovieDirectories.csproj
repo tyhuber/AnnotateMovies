@@ -55,6 +55,7 @@
     <Compile Include="Configuration\BaseConfig.cs" />
     <Compile Include="Configuration\Cfg.cs" />
     <Compile Include="Configuration\Config.cs" />
+    <Compile Include="Configuration\Genre.cs" />
     <Compile Include="Configuration\Settings.cs" />
     <Compile Include="Extensions\DirInfo\DirBooks.cs" />
     <Compile Include="Extensions\DirInfo\DirMisc.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Extensions\DirInfo\DirRegex.cs" />
     <Compile Include="Extensions\DirInfo\DirRename.cs" />
     <Compile Include="Extensions\FileInfoExtensions.cs" />
+    <Compile Include="Extensions\FileSystemInfoExtensions.cs" />
     <Compile Include="Extensions\MiscExtensions.cs" />
     <Compile Include="Extensions\PropertyInfoExtensions.cs" />
     <Compile Include="Extensions\Quality\Rip.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="GoodReads\GoodReadsSearch.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Movies\Annotater.cs" />
+    <Compile Include="Movies\GenreTagger.cs" />
     <Compile Include="Movies\Metacritic\Meta.cs" />
     <Compile Include="Movies\Movie.cs" />
     <Compile Include="Movies\Omb\OmdbResult.cs" />

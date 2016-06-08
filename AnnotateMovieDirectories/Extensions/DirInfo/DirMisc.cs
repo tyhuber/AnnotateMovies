@@ -54,5 +54,7 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
             if(!Cfg.Config.Settings.Rename)return dir.Name.Contains("IMDB") && DirRegex.ScoreRegex.IsMatch(dir.Name);
             return false;
         }
+
+        
     }
 }

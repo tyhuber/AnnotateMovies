@@ -33,10 +33,27 @@ namespace AnnotateMovieDirectories
             if (!GetConfigPath(args)) return -1;
 
             if (!DeserializeConfig()) return -1;
+            if (!Cfg.DownloadDirExists)
+            {
+                Error($"Specified download directory {Cfg.Config.Path} does not exist.");
+                Console.ReadLine();
+                return 1;
+            }
+
             if (Cfg.Config.Settings.Test)
             {
                 CreateTestDir();
             }
+
+            if (Cfg.Config.ForceAppendGenre)
+            {
+                var movies = Cfg.DownloadDir.EnumerateAnnotatedDirectories();
+                foreach (var dir in movies)
+                {
+                    GenreTagger.AddGenreToDirectory(dir);
+                }
+            }
+
             Annotater.GetRatingsAndRename();
             if (Logger.EncounteredError)
             {
@@ -46,7 +63,7 @@ namespace AnnotateMovieDirectories
                 return 1;
             }
 //            Logger.Dispose();
-            Console.ReadLine();
+//            Console.ReadLine();
             return 0;
 
         }

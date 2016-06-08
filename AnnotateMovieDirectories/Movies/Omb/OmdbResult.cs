@@ -234,6 +234,12 @@ namespace AnnotateMovieDirectories.Movies.Omb
         public string GetDirectoryName()
         {
             string name = $"{Math.Round(Score,1)}, {Title} ({Year}) [{Runtime}] IMDB-{imdbRating}. RT={Math.Round(StdRtMeter??0,1)}%.{Math.Round(StdRtRating ?? 0,1)}, Meta-{Math.Round(Metascore,1)}";
+            if (Cfg.Config.AppendGenre&&!string.IsNullOrWhiteSpace(Genre))
+            {
+                var genres = Genre.Split(',').Select(x => $"[{x.Trim()}]");
+                string genreString = string.Join(" ", genres);
+                name = $"{name} {genreString}";
+            }
             var invalid = Path.GetInvalidFileNameChars().Intersect(name);
             if (invalid.Any())
             {
@@ -242,6 +248,8 @@ namespace AnnotateMovieDirectories.Movies.Omb
                     name = name.Replace(i.ToString(), String.Empty);
                 }
             }
+
+            
             return name;
 
         }

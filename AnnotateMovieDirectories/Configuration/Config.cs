@@ -22,6 +22,8 @@ namespace AnnotateMovieDirectories.Configuration
         public bool Overwrite => Settings.OverwriteMovieInfo;
         [XmlElement]
         public Settings Settings { get; set; }
+        [XmlElement(IsNullable = true)]
+        public Genre Genre { get; set; }
         [XmlArrayItem("Property")]
         public List<string> Top { get; set; }
         [XmlArrayItem("Property")]
@@ -34,6 +36,12 @@ namespace AnnotateMovieDirectories.Configuration
         public bool Rename => RenameBy != RenameBy.None;
         [XmlIgnore]
         public List<string> AllIgnore => Top.Concat(Ignore).ToList();
+
+        [XmlIgnore]
+        public bool AppendGenre => Genre != null && Genre.Append;
+
+        [XmlIgnore]
+        public bool ForceAppendGenre => AppendGenre && Genre.Force;
 
 
         [XmlArray("Name")]

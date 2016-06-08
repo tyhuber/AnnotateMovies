@@ -18,23 +18,11 @@ namespace AnnotateMovieDirectories.Movies
             Log($"Config settings:\n{Cfg.Config}");
             if (Cfg.Config.Rename)
             {
-                /*var dirs = MainDir.GetDirectories("*IMDB*");
-                foreach (var dir in dirs)
-                {
-                    dir.SortByName();
-                }*/
+
             }
             else
             {
                 RenameAndWriteInfo();
-              /*  if (Cfg.Config.Settings.MetaCritic.Add)
-                {
-                    var movies = new DirectoryInfo(Cfg.Config.Path).EnumerateMovies();
-                    foreach (var m in movies)
-                    {
-                        Log($"{m.Title} - Score = {m.Score}. Meta = {m.MetaCritic}");
-                    }
-                }*/
             }      
         }
 
