@@ -173,6 +173,12 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
             return dir.EnumerateDirectories().Where(x => DirRegex.ScoreRegex.IsMatch(x.Name));
         }
 
+        public static IEnumerable<DirectoryInfo> EnumerateMovieInfoDirectories(this DirectoryInfo dir)
+        {
+            return
+                dir.EnumerateDirectories().Where(x => File.Exists(Path.Combine(x.FullName, "MovieInfo.txt")));
+        }
+
         private static void Log(string s, [CallerMemberName] string name = "",
             [CallerFilePath] string path = "", [CallerLineNumber] int ln = 0)
         {

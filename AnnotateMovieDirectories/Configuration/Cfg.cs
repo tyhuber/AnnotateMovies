@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using AnnotateMovieDirectories.Extensions;
 using AnnotateMovieDirectories.Logging;
+using IpaExtensions.FileSystem;
 
 namespace AnnotateMovieDirectories.Configuration
 {
@@ -14,7 +15,7 @@ namespace AnnotateMovieDirectories.Configuration
         private static XmlSerializer Ser => new XmlSerializer(typeof(Config));
         public static DirectoryInfo DownloadDir => new DirectoryInfo(Config.Path);
         public static bool DownloadDirExists => DownloadDir.ExistsNow();
-
+        
         private static bool HandleXml(string path, bool serialize,Action<string> xmlAction)
         {
             try
@@ -30,7 +31,7 @@ namespace AnnotateMovieDirectories.Configuration
                 return false;
             }
         }
-
+        
         public static bool Deserialize(string path)
         {
             if (!File.Exists(path))

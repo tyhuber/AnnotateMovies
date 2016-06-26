@@ -6,11 +6,12 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using AnnotateMovieDirectories.Configuration;
+using AnnotateMovieDirectories.Configuration.Yaml;
 using AnnotateMovieDirectories.Extensions;
 using AnnotateMovieDirectories.Extensions.DirInfo;
 using AnnotateMovieDirectories.Logging;
 using AnnotateMovieDirectories.Movies;
-using AnnotateMovieDirectories.Omdb.Metacritic;
+using YamlDotNet.Serialization;
 
 namespace AnnotateMovieDirectories
 {
@@ -33,6 +34,38 @@ namespace AnnotateMovieDirectories
             if (!GetConfigPath(args)) return -1;
 
             if (!DeserializeConfig()) return -1;
+            
+//            ConvertConfig();
+//            DeserializeYamlConfig();
+//            Console.ReadLine();
+//            return 0;
+            return Run();
+        }
+
+        private static void DeserializeYamlConfig()
+        {
+            Deserializer deserializer = new Deserializer();
+            using (var reader = new StreamReader("AnnotateConfig.yaml"))
+            {
+                var yaml = deserializer.Deserialize<YamlConfig>(reader);
+                Console.WriteLine(yaml);
+            }
+        }
+
+        private static void ConvertConfig()
+        {
+            Serializer ser = new Serializer();
+            var yaml = Cfg.Config.ConvertToYaml();
+            Console.WriteLine(yaml);
+
+            using (var writer = new StreamWriter("AnnotateConfig.yaml"))
+            {
+                ser.Serialize(writer, yaml);
+            }
+        }
+
+        private static int Run()
+        {
             if (!Cfg.DownloadDirExists)
             {
                 Error($"Specified download directory {Cfg.Config.Path} does not exist.");
@@ -55,9 +88,14 @@ namespace AnnotateMovieDirectories
             }
 
             Annotater.GetRatingsAndRename();
+
+            if (Cfg.Config.GenreMoveOn)
+            {
+                GenreMover.Move();
+            }
             if (Logger.EncounteredError)
             {
-                Console.ForegroundColor=ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Error.WriteLine($"Encountered error while running");
                 Console.ResetColor();
                 return 1;
@@ -65,7 +103,6 @@ namespace AnnotateMovieDirectories
 //            Logger.Dispose();
 //            Console.ReadLine();
             return 0;
-
         }
 
         private static bool DeserializeConfig()

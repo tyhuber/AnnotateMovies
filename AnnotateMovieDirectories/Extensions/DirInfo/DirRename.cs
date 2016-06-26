@@ -5,9 +5,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Logging;
-using AnnotateMovieDirectories.MovieRatings;
+using AnnotateMovieDirectories.Movies;
 using AnnotateMovieDirectories.Movies.Omb;
-using AnnotateMovieDirectories.Omdb;
+using IpaExtensions.FileSystem;
 
 namespace AnnotateMovieDirectories.Extensions.DirInfo
 {
@@ -51,7 +51,7 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
         private static DirectoryInfo GetOldDirName(this DirectoryInfo dir)
         {
             var vid = dir.GetVideo();
-            string newPath = Path.Combine(dir.Parent.FullName, vid.GetNameWithoutExt());
+            string newPath = Path.Combine(dir.Parent.FullName, vid.NameWithoutExt());
             dir.MoveTo(newPath);
             return new DirectoryInfo(newPath);
         }

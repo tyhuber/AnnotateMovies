@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using AnnotateMovieDirectories.Extensions.Quality;
 using AnnotateMovieDirectories.Logging;
+using IpaExtensions.FileSystem;
 
 namespace AnnotateMovieDirectories.Extensions
 {
@@ -57,10 +58,10 @@ namespace AnnotateMovieDirectories.Extensions
             return AudioExtensions.Any(x => x.Equals(file.Extension, StringComparison.OrdinalIgnoreCase));
         }
 
-        public static string GetNameWithoutExt(this FileInfo file)
+      /*  public static string GetNameWithoutExt(this FileInfo file)
         {
             return file.Name.Replace(file.Extension, string.Empty);
-        }
+        }*/
 
 
         public static bool TryGetExt(this FileInfo file, out string ext)
@@ -87,7 +88,7 @@ namespace AnnotateMovieDirectories.Extensions
                 Error($"Unable to find correct video extension for {file.String()}");
                 return;
             }
-            string noExt = file.GetNameWithoutExt();
+            string noExt = file.NameWithoutExt();
             string name = noExt;
             TryReplace(year, ref name);
             TryReplace(quality, ref name);

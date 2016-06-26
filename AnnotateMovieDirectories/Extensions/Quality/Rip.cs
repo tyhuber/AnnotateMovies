@@ -4,7 +4,6 @@
     {
         public static RipType ParseType(string ripType)
         {
-            //BluRay|BRRip|BDrip|DVDRip|DVDSCR|WEBRip
             switch (ripType.ToLowerInvariant())
             {
                 case "bluray":

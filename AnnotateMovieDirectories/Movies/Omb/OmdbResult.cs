@@ -9,7 +9,7 @@ using AnnotateMovieDirectories.Attributes;
 using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Extensions;
 using AnnotateMovieDirectories.Logging;
-using AnnotateMovieDirectories.Omdb.Metacritic;
+using AnnotateMovieDirectories.Movies.Metacritic;
 
 namespace AnnotateMovieDirectories.Movies.Omb
 {

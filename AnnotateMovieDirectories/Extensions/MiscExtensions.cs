@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using AnnotateMovieDirectories.Attributes;
 using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Logging;
-using AnnotateMovieDirectories.Omdb.Metacritic;
+using AnnotateMovieDirectories.Movies.Metacritic;
 
 namespace AnnotateMovieDirectories.Extensions
 {

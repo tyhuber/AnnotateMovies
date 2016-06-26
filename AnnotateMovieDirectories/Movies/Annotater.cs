@@ -6,6 +6,7 @@ using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Extensions;
 using AnnotateMovieDirectories.Extensions.DirInfo;
 using AnnotateMovieDirectories.Logging;
+using IpaExtensions.FileSystem;
 
 namespace AnnotateMovieDirectories.Movies
 {
@@ -51,7 +52,7 @@ namespace AnnotateMovieDirectories.Movies
                 {
                     try
                     {
-                        string newPath = Path.Combine(MainDir.CreateSubdirectory(f.GetNameWithoutExt()).FullName, f.Name);
+                        string newPath = Path.Combine(MainDir.CreateSubdirectory(f.NameWithoutExt()).FullName, f.Name);
                         f.MoveTo(newPath);
                     }
                     catch (Exception e)

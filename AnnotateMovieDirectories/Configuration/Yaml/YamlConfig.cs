@@ -1,67 +1,50 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Xml.Serialization;
-using AnnotateMovieDirectories.Configuration.Yaml;
-using AnnotateMovieDirectories.Extensions;
-using AnnotateMovieDirectories.Logging;
 using AnnotateMovieDirectories.Movies;
+using YamlDotNet.Serialization;
 
-namespace AnnotateMovieDirectories.Configuration
+namespace AnnotateMovieDirectories.Configuration.Yaml
 {
-    [XmlRoot(Namespace = "")]
-    public class Config:BaseConfig
+    public class YamlConfig:BaseConfig
     {
-        [XmlIgnore]
+
+        [YamlIgnore]
         public string Path => Settings.Path;
 
-        [XmlIgnore]
+        [YamlIgnore]
         public bool Overwrite => Settings.OverwriteMovieInfo;
-        [XmlElement]
-        public Settings Settings { get; set; }
-        [XmlElement(IsNullable = true)]
-        public Genre Genre { get; set; }
-        [XmlArrayItem("Property")]
+
+        [YamlMember]
+        public YamlSettings Settings { get; set; }
+
+        [YamlMember]
+        public YamlGenre Genre { get; set; }
+
+        [YamlMember]
         public List<string> Top { get; set; }
-        [XmlArrayItem("Property")]
+
+        [YamlMember]
         public List<string> Ignore { get; set; }
 
-        [XmlAttribute]
+        [YamlMember]
         public RenameBy RenameBy { get; set; }
 
-        [XmlIgnore]
+        [YamlIgnore]
         public bool Rename => RenameBy != RenameBy.None;
-        [XmlIgnore]
+
+        [YamlIgnore]
         public List<string> AllIgnore => Top.Concat(Ignore).ToList();
 
-        [XmlIgnore]
+        [YamlIgnore]
         public bool AppendGenre => Genre != null && Genre.Append;
 
-        [XmlIgnore]
+        [YamlIgnore]
         public bool ForceAppendGenre => AppendGenre && Genre.Force;
 
-
-        [XmlArray("Name")]
+        [YamlMember]
         public List<string> IgnoreDirectoires { get; set; }
-
-        [XmlElement(IsNullable = true)]
-        public GenreMove MoveGenres { get; set; }
-        [XmlIgnore]
-        public bool GenreMoveOn => MoveGenres != null && MoveGenres.Use;
-        [XmlIgnore]
-        public bool GenreMoveForce => GenreMoveOn && MoveGenres.Force;
-
-        public YamlConfig ConvertToYaml()
-        {
-            YamlConfig yaml = Convert<YamlConfig>();
-            yaml.Settings = Settings.ConvertToYaml();
-            yaml.Genre = Genre.Convert<YamlGenre>();
-            return yaml;
-        }
 
 
         public double GetWeightedScore(Movie movie)
@@ -70,10 +53,10 @@ namespace AnnotateMovieDirectories.Configuration
             double weight = 0;
             foreach (RatingType type in Enum.GetValues(typeof(RatingType)))
             {
-                AddWeight(movie,type,ref rating,ref weight);
+                AddWeight(movie, type, ref rating, ref weight);
             }
             if (Math.Abs(weight) < double.Epsilon) return 0;
-            return Math.Round(rating/weight,1);
+            return Math.Round(rating / weight, 1);
         }
 
         private void AddWeight(Movie movie, RatingType type, ref double rating, ref double weight)
@@ -90,8 +73,8 @@ namespace AnnotateMovieDirectories.Configuration
                 return;
             }
             double tmpWeight = GetWeight(type);
-//            Log($"{movie.Title}-{type} = {tmpRating}. Weight = {tmpWeight}");
-            rating += tmpRating*tmpWeight;
+            //            Log($"{movie.Title}-{type} = {tmpRating}. Weight = {tmpWeight}");
+            rating += tmpRating * tmpWeight;
             weight += tmpWeight;
         }
 
@@ -121,25 +104,5 @@ namespace AnnotateMovieDirectories.Configuration
         {
             return string.Join("\n", Reflect());
         }
-
-       
-    }
-
-
-    public enum RatingType
-    {
-        Imdb,
-        RtFresh,
-        RtRating,
-        MetaCritic
-    }
-
-    public enum RenameBy
-    {
-        Score,
-        Runtime,
-        Year,
-        Normal,
-        None
     }
 }

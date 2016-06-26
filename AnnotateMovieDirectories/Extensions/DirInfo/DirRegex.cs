@@ -10,11 +10,11 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
         private static IEnumerable<string> VideoExtensions => new List<string> { "mkv", "avi", "mp4", "mpg", "mov", "wmv" };
         public static Regex RipRegex => new Regex(@"(BluRay|BRRip|BDrip|DVDRip|DVDSCR|WEBRip|HDRip|x264)", RegexOptions.IgnoreCase);
         public static Regex QRegex => new Regex(@"(?<v>(720|480|1080|1\d{3})p)");
-        public static Regex YearRegex => new Regex(@"\(?(?<v>(19|20)\d{2})\)?");
+        public static Regex YearRegex => new Regex(@"\(?(?<v>((19)\d{2})|((20)[0-1]\d))\)?");
         public static Regex TimeRegex => new Regex(@"\[(?<v>\d{2,3} min)\]");
         public static Regex ForeignRegex => new Regex(@"[\(|\[](?!(19|20)\d{2})((\w+[\s|\.]?)+)[\)|\]]");
         public static Regex TvRegex => new Regex(@"(S0\d|Season)(E\d{1,2})?");
-        public static Regex ScoreRegex => new Regex(@"^(?<v>[0-9]{2}(\.[0-9],)?).*");
+        public static Regex ScoreRegex => new Regex(@"^(?<v>[0-9]{2}(\.[0-9])?,).*");
         private static Regex AnnotationRegex => new Regex(@"(?<title>.*)\((?<year>(19|20)\d{2})\)\s+\[(?<time>\d+) min\]\sIMDB-(?<imdb>[1-9]\.\d)\s?(?<rt>RT-(?<rtfresh>\d{2})%\s\((?<rtrating>\d\.\d)\))?");
 
         public static bool IsAnnotated(this DirectoryInfo dir)

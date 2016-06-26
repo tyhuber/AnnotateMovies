@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using AnnotateMovieDirectories.Logging;
 using HtmlAgilityPack;
 
-namespace AnnotateMovieDirectories.Omdb.Metacritic
+namespace AnnotateMovieDirectories.Movies.Metacritic
 {
     public static class Meta
     {

@@ -6,9 +6,9 @@ using AnnotateMovieDirectories.Extensions;
 namespace AnnotateMovieDirectories.Attributes
 {
     [AttributeUsage(AttributeTargets.Class |
-AttributeTargets.Field |
-AttributeTargets.Property,
-AllowMultiple = true)]
+    AttributeTargets.Field |
+    AttributeTargets.Property,
+    AllowMultiple = true)]
     public class Tag:Attribute
     {
         public string Name { get; }

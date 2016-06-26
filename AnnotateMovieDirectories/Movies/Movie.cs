@@ -11,12 +11,13 @@ using AnnotateMovieDirectories.Extensions;
 using AnnotateMovieDirectories.Extensions.DirInfo;
 using AnnotateMovieDirectories.Logging;
 using AnnotateMovieDirectories.Movies.Omb;
-using AnnotateMovieDirectories.Omdb;
+using IpaExtensions;
 
-namespace AnnotateMovieDirectories.MovieRatings
+namespace AnnotateMovieDirectories.Movies
 {
     public class Movie
     {
+
         private static Regex AnnotationRegex => new Regex(@"(?<title>.*)\((?<year>(19|20)\d{2})\)\s+\[(?<time>\d+) min\]\sIMDB-(?<imdb>[1-9](\.\d)?)\s?(?<rt>RT-(?<rtfresh>\d{2,3})%\s\((?<rtrating>\d\.\d)\))?Meta-.*");
         [Tag("MovieRegex")]
         private static Regex YearRegex =>new Regex(@"\((?<year>(19|20)\d{2})\)");
@@ -53,7 +54,7 @@ namespace AnnotateMovieDirectories.MovieRatings
         {
             return GetType().GetProperties()
                 .Where( x =>
-                    CustomAttributeExtensions.GetCustomAttributes<Tag>((MemberInfo) x)
+                    x.GetCustomAttributes<Tag>()
                         .Any(t => t.Name.Equals("MovieRegex"))).ToList().Select(x=>Convert.ChangeType(x.GetValue(this,null),x.PropertyType) as Regex);
         }
 

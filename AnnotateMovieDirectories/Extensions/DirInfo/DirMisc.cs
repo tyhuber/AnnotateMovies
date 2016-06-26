@@ -6,7 +6,8 @@ using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Logging;
-using AnnotateMovieDirectories.Omdb;
+using AnnotateMovieDirectories.Movies;
+using IpaExtensions.FileSystem;
 
 namespace AnnotateMovieDirectories.Extensions.DirInfo
 {
@@ -36,7 +37,7 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
             {
                 var fi = dir.GetVideo();
                 if (fi == default(FileInfo)) return;
-                newParent.CreateSubdirectory(fi.GetNameWithoutExt());
+                newParent.CreateSubdirectory(fi.NameWithoutExt());
             }
             else
             {
