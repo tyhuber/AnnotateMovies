@@ -15,11 +15,19 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
         public static Regex ForeignRegex => new Regex(@"[\(|\[](?!(19|20)\d{2})((\w+[\s|\.]?)+)[\)|\]]");
         public static Regex TvRegex => new Regex(@"(S0\d|Season)(E\d{1,2})?");
         public static Regex ScoreRegex => new Regex(@"^(?<v>[0-9]{2}(\.[0-9])?,).*");
-        private static Regex AnnotationRegex => new Regex(@"(?<title>.*)\((?<year>(19|20)\d{2})\)\s+\[(?<time>\d+) min\]\sIMDB-(?<imdb>[1-9]\.\d)\s?(?<rt>RT-(?<rtfresh>\d{2})%\s\((?<rtrating>\d\.\d)\))?");
+//        private static Regex AnnotationRegex => new Regex(@"(?<title>.*)\((?<year>(19|20)\d{2})\)\s+\[(?<time>\d+) min\]\sIMDB-(?<imdb>[1-9]\.\d)\s?(?<rt>RT-(?<rtfresh>\d{2})%\s\((?<rtrating>\d\.\d)\))?");
+        public static Regex AnnotationRegex => new Regex(@"(?<score>\d{1,2}(\.\d)?),(?<title>.*)\((?<year>(19|20)\d{2})\)\s+\[(?<time>\d+) min\]\sIMDB-(?<imdb>[1-9](\.\d)?)\.?\s?RT=(?<rtfresh>\d{1,3})%\.(?<rtrating>\d{2}),\sMeta-(?<meta>\d{1,2})(\s\[(?<genre>\w+)\])+");
+
+        public static Regex OscarRegex => new Regex(@"\[((?<wins>\d) Oscars|(?<noms>\d) Oscar Noms)\]");
 
         public static bool IsAnnotated(this DirectoryInfo dir)
         {
             return AnnotationRegex.IsMatch(dir.Name);
+        }
+
+        public static bool HasOscarsAnnotation(this DirectoryInfo dir)
+        {
+            return OscarRegex.IsMatch(dir.Name);
         }
 
         public static bool MatchRegex(this DirectoryInfo dir, Regex reg, out string match)

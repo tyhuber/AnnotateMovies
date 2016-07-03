@@ -77,7 +77,15 @@ namespace AnnotateMovieDirectories
             {
                 CreateTestDir();
             }
-
+            if (Cfg.Config.AppendOscars)
+            {
+                var movies = Cfg.DownloadDir.EnumerateAnnotatedDirectories().Where(x => x.HasOscars()).ToList();
+                Log($"Got {movies.Count} movies with oscar wins.");
+                foreach (var movie in movies)
+                {
+                    OscarTagger.AddOscarNotation(movie);
+                }
+            }
             if (Cfg.Config.ForceAppendGenre)
             {
                 var movies = Cfg.DownloadDir.EnumerateAnnotatedDirectories();

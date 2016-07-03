@@ -33,6 +33,9 @@ namespace AnnotateMovieDirectories.Configuration
         [XmlAttribute]
         public RenameBy RenameBy { get; set; }
 
+        [XmlAttribute]
+        public bool AppendOscars { get; set; }
+
         [XmlIgnore]
         public bool Rename => RenameBy != RenameBy.None;
         [XmlIgnore]

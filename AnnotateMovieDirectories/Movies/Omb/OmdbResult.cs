@@ -10,6 +10,7 @@ using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Extensions;
 using AnnotateMovieDirectories.Logging;
 using AnnotateMovieDirectories.Movies.Metacritic;
+using IpaExtensions.Objects;
 
 namespace AnnotateMovieDirectories.Movies.Omb
 {
@@ -239,6 +240,14 @@ namespace AnnotateMovieDirectories.Movies.Omb
                 var genres = Genre.Split(',').Select(x => $"[{x.Trim()}]");
                 string genreString = string.Join(" ", genres);
                 name = $"{name} {genreString}";
+            }
+            if (Cfg.Config.AppendOscars && !Awards.IsNullOrWhitespace()&&Awards.ToLowerInvariant().Contains("oscar"))
+            {
+                string oscarTag = OscarTagger.GetOscarTag(Awards);
+                if (!oscarTag.IsNullOrWhitespace())
+                {
+                    name = $"{name} {oscarTag}";
+                }
             }
             var invalid = Path.GetInvalidFileNameChars().Intersect(name);
             if (invalid.Any())

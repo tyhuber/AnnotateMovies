@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Logging;
+using IpaExtensions.Objects;
 
 namespace AnnotateMovieDirectories.Extensions.DirInfo
 {
@@ -61,6 +62,33 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
             }
         }
 
+        public static bool GetOscarsLine(this DirectoryInfo dir, out string awards)
+        {
+            FileInfo movieInfo;
+            awards = string.Empty;
+            if (!dir.GetMovieInfo(out movieInfo))
+            {
+                return false;
+            }
+            var lines = movieInfo.ReadAllLines();
+            awards = lines.FirstOrDefault(x => x.StartsWith("Awards:"));
+            if (awards.IsNullOrWhitespace()) return false;
+            return awards.ToLowerInvariant().Contains("oscar");
+
+        }
+        public static bool HasOscars(this DirectoryInfo dir)
+        {
+            FileInfo movieInfo;
+            if (!dir.GetMovieInfo(out movieInfo))
+            {
+                return false;
+            }
+            var lines = movieInfo.ReadAllLines();
+            string awards = lines.FirstOrDefault(x => x.StartsWith("Awards:"));
+            if (awards.IsNullOrWhitespace()) return false;
+            return awards.ToLowerInvariant().Contains("oscar");
+
+        }
         public static bool TryGetYear(this DirectoryInfo dir, out string year)
         {
             string tmp;
