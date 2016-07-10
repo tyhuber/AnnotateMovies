@@ -1,0 +1,2 @@
+﻿robocopy "$(ProjectDir)bin\$(ConfigurationName)" "$(ProjectDir)bin\$(ConfigurationName)2" *.* || exit /b 0
+echo robocopy "$(TargetDir)" "$(ProjectDir)bin\$(ConfigurationName)2" *.* 

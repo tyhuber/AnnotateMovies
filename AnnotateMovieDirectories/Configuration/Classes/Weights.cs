@@ -2,7 +2,7 @@ using System;
 using System.Xml.Serialization;
 using AnnotateMovieDirectories.Configuration.Yaml;
 
-namespace AnnotateMovieDirectories.Configuration
+namespace AnnotateMovieDirectories.Configuration.Classes
 {
     public class Weights:BaseConfig
     {
@@ -14,6 +14,8 @@ namespace AnnotateMovieDirectories.Configuration
         public double RtRating { get; set; }
         [XmlAttribute]
         public double MetaCritic { get; set; }
+        [XmlAttribute]
+        public double Ebert { get; set; }
 
         [XmlIgnore]
         public bool Valid => Math.Abs(Imdb + RtFresh + RtRating + MetaCritic - 1) < double.Epsilon;

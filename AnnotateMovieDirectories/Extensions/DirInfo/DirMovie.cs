@@ -43,7 +43,7 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
         {
             var movie = dir.GetMovie();
             if (!movie.Annotated) return;
-            switch (Cfg.Config.RenameBy)
+            switch (Settings.Config.RenameBy)
             {
                 case RenameBy.Score:
                     dir.MoveTo(Path.Combine(dir.Parent.FullName, movie.ScoreTitle));
@@ -58,7 +58,7 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
                     dir.MoveTo(Path.Combine(dir.Parent.FullName, movie.NormalTitle));
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(Cfg.Config.RenameBy), Cfg.Config.RenameBy, null);
+                    throw new ArgumentOutOfRangeException(nameof(Settings.Config.RenameBy), Settings.Config.RenameBy, null);
             }
         }
 

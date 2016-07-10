@@ -11,6 +11,7 @@ using AnnotateMovieDirectories.Extensions;
 using AnnotateMovieDirectories.Extensions.DirInfo;
 using AnnotateMovieDirectories.Logging;
 using AnnotateMovieDirectories.Movies.Omb;
+using AnnotateMovieDirectories.Movies.RogerEbert;
 using IpaExtensions;
 
 namespace AnnotateMovieDirectories.Movies
@@ -36,14 +37,14 @@ namespace AnnotateMovieDirectories.Movies
         public double Imdb { get; set; }
         public double RtFresh { get; set; }
         public double RtRating { get; set; }
-
         public double MetaCritic { get; set; }
+        public int EbertRating { get; set; }
         public bool Annotated { get; set; }
 
         public string Name { get; set; }
         public DirectoryInfo Dir { get; set; }
 
-        public double Score => Cfg.Config.GetWeightedScore(this);
+        public double Score => Settings.Config.GetWeightedScore(this);
 
         public bool Valid
             =>
@@ -113,6 +114,11 @@ namespace AnnotateMovieDirectories.Movies
             if (Title.TryGetMeta(Year, out tmpMeta))
             {
                 MetaCritic = tmpMeta;
+            }
+            int tmpEbert;
+            if (EbertQuery.TryGetRating(Title, Year, out tmpEbert))
+            {
+                EbertRating = tmpEbert;
             }
             
 
@@ -243,6 +249,11 @@ namespace AnnotateMovieDirectories.Movies
                     if (Math.Abs(MetaCritic) < double.Epsilon) return false;
                     rating = MetaCritic;
                     return true;
+                case RatingType.Ebert:
+                    if (EbertRating.IsDefault()) return false;
+                    rating = (Convert.ToDouble(EbertRating)/4)*100;
+                    return true;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }

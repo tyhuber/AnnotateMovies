@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 using AnnotateMovieDirectories.Logging;
 using YamlDotNet.Serialization;
 
-namespace AnnotateMovieDirectories.Configuration
+namespace AnnotateMovieDirectories.Configuration.Classes
 {
     public abstract class BaseConfig
     {

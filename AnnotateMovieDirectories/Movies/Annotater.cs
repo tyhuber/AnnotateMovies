@@ -12,12 +12,12 @@ namespace AnnotateMovieDirectories.Movies
 {
     public class Annotater
     {
-        public static DirectoryInfo MainDir => new DirectoryInfo(Cfg.Config.Path);
+        public static DirectoryInfo MainDir => new DirectoryInfo(Settings.Config.Path);
 
         public static void GetRatingsAndRename()
         {
-            Log($"Config settings:\n{Cfg.Config}");
-            if (Cfg.Config.Rename)
+            Log($"Config settings:\n{Settings.Config}");
+            if (Settings.Config.Rename)
             {
 
             }
@@ -39,7 +39,15 @@ namespace AnnotateMovieDirectories.Movies
             }
             foreach (var d in dirs)
             {
-                d.Rename();
+                try
+                {
+                    d.Rename();
+                }
+                catch (Exception ex)
+                {
+                    Error($"Caught exception trying to rename {d.Name}");
+                    Error(ex);
+                }
             }
         }
 

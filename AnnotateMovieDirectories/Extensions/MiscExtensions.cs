@@ -73,7 +73,7 @@ namespace AnnotateMovieDirectories.Extensions
                 mov.GetType().GetProperties(BindingFlags.IgnoreCase | BindingFlags.Public).FirstOrDefault(
                     x => x.Name.Equals(type.ToString()));
             var weightProp =
-                Cfg.Config.Settings.GetType().GetProperties(BindingFlags.IgnoreCase | BindingFlags.Public)
+                Settings.Config.Settings.GetType().GetProperties(BindingFlags.IgnoreCase | BindingFlags.Public)
                    .FirstOrDefault(x => x.Name.Equals(type.ToString()));
             if (prop == null || weightProp == null)
             {
@@ -83,7 +83,7 @@ namespace AnnotateMovieDirectories.Extensions
             try
             {
                 double unweightedRating = Convert.ToDouble(prop.GetValue(mov, null));
-                double weight = Convert.ToDouble(weightProp.GetValue(Cfg.Config.Settings, null));
+                double weight = Convert.ToDouble(weightProp.GetValue(Settings.Config.Settings, null));
                 if (weight.IsZero() || unweightedRating.IsZero()) return false;
                 rating = unweightedRating*weight;
 

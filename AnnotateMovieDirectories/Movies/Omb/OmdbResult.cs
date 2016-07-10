@@ -10,6 +10,7 @@ using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Extensions;
 using AnnotateMovieDirectories.Logging;
 using AnnotateMovieDirectories.Movies.Metacritic;
+using AnnotateMovieDirectories.Movies.RogerEbert;
 using IpaExtensions.Objects;
 
 namespace AnnotateMovieDirectories.Movies.Omb
@@ -33,6 +34,10 @@ namespace AnnotateMovieDirectories.Movies.Omb
 
         [Rating(RatingType.MetaCritic)]
         public double Metascore => Meta.GetRating(Title, Year);
+
+        private int EbertRating => EbertQuery.GetRating(Title, Year);
+        [Rating(RatingType.Ebert)]
+        public int StdEbertRating => (EbertRating*25);
         
         public float imdbRating { get; set; }
 
@@ -153,7 +158,7 @@ namespace AnnotateMovieDirectories.Movies.Omb
             string filePath = Path.Combine(dir.FullName, "MovieInfo.txt");
             if (File.Exists(filePath))
             {
-                if (Cfg.Config.Overwrite)
+                if (Settings.Config.Overwrite)
                 {
                     File.Delete(filePath);
                 }
@@ -170,7 +175,7 @@ namespace AnnotateMovieDirectories.Movies.Omb
                 | BindingFlags.FlattenHierarchy 
                 | BindingFlags.IgnoreCase);
             var topProp =
-                propInfo.Where(x => Cfg.Config.Top.Any(y => y.Equals(x.Name, StringComparison.OrdinalIgnoreCase)));
+                propInfo.Where(x => Settings.Config.Top.Any(y => y.Equals(x.Name, StringComparison.OrdinalIgnoreCase)));
             List<string> lines = new List<string>();
             foreach (var prop in topProp)
             {
@@ -194,7 +199,7 @@ namespace AnnotateMovieDirectories.Movies.Omb
             Log("Got the following top property values:");
             Logger.BLog(string.Join("\n",lines));
             lines.Add("");
-            var others = propInfo.Where(x => !Cfg.Config.AllIgnore.Any(n=>x.Name.Equals(n,StringComparison.OrdinalIgnoreCase)));
+            var others = propInfo.Where(x => !Settings.Config.AllIgnore.Any(n=>x.Name.Equals(n,StringComparison.OrdinalIgnoreCase)));
             foreach (var prop in others)
             {
                 var val = Convert.ChangeType(prop.GetValue(this, null), prop.PropertyType);      
@@ -234,14 +239,26 @@ namespace AnnotateMovieDirectories.Movies.Omb
 
         public string GetDirectoryName()
         {
-            string name = $"{Math.Round(Score,1)}, {Title} ({Year}) [{Runtime}] IMDB-{imdbRating}. RT={Math.Round(StdRtMeter??0,1)}%.{Math.Round(StdRtRating ?? 0,1)}, Meta-{Math.Round(Metascore,1)}";
-            if (Cfg.Config.AppendGenre&&!string.IsNullOrWhiteSpace(Genre))
+            string meta = string.Empty;
+            if (!Metascore.IsZero())
+            {
+                meta = $", Meta-{Math.Round(Metascore, 1)}";
+            }
+            string ebert = string.Empty;
+            if (StdEbertRating!=0)
+            {
+                ebert = $" Ebert-{EbertRating}";
+            }
+            string name = $"{Math.Round(Score,1)}, {Title} ({Year}) [{Runtime}] IMDB-{imdbRating}. RT={Math.Round(StdRtMeter??0,1)}%.{Math.Round(StdRtRating ?? 0,1)}, Meta-{Math.Round(Metascore,1)}{ebert}";
+            
+
+            if (Settings.Config.AppendGenre&&!string.IsNullOrWhiteSpace(Genre))
             {
                 var genres = Genre.Split(',').Select(x => $"[{x.Trim()}]");
                 string genreString = string.Join(" ", genres);
                 name = $"{name} {genreString}";
             }
-            if (Cfg.Config.AppendOscars && !Awards.IsNullOrWhitespace()&&Awards.ToLowerInvariant().Contains("oscar"))
+            if (Settings.Config.AppendOscars && !Awards.IsNullOrWhitespace()&&Awards.ToLowerInvariant().Contains("oscar"))
             {
                 string oscarTag = OscarTagger.GetOscarTag(Awards);
                 if (!oscarTag.IsNullOrWhitespace())

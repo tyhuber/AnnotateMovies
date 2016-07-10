@@ -1,4 +1,5 @@
-﻿using YamlDotNet.Serialization;
+﻿using AnnotateMovieDirectories.Configuration.Classes;
+using YamlDotNet.Serialization;
 
 namespace AnnotateMovieDirectories.Configuration.Yaml
 {

@@ -74,14 +74,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\Tag.cs" />
-    <Compile Include="Configuration\BaseConfig.cs" />
-    <Compile Include="Configuration\Cfg.cs" />
-    <Compile Include="Configuration\Config.cs" />
-    <Compile Include="Configuration\Genre.cs" />
-    <Compile Include="Configuration\GenreMove.cs" />
-    <Compile Include="Configuration\MetaCritic.cs" />
     <Compile Include="Configuration\Settings.cs" />
-    <Compile Include="Configuration\Weights.cs" />
+    <Compile Include="Configuration\Classes\BaseConfig.cs" />
+    <Compile Include="Configuration\Classes\Genre.cs" />
+    <Compile Include="Configuration\Classes\GenreMove.cs" />
+    <Compile Include="Configuration\Classes\LogMediaConfig.cs" />
+    <Compile Include="Configuration\Classes\MetaCritic.cs" />
+    <Compile Include="Configuration\Classes\Settings.cs" />
+    <Compile Include="Configuration\Classes\Weights.cs" />
+    <Compile Include="Configuration\Config.cs" />
     <Compile Include="Configuration\Yaml\IgnoreConvertAttribute.cs" />
     <Compile Include="Configuration\Yaml\YamlConfig.cs" />
     <Compile Include="Configuration\Yaml\YamlGenre.cs" />
@@ -97,8 +98,6 @@
     <Compile Include="Extensions\MiscExtensions.cs" />
     <Compile Include="Extensions\Quality\Rip.cs" />
     <Compile Include="Extensions\Quality\RipType.cs" />
-    <Compile Include="GoodReads\GoodreadsReponse.cs" />
-    <Compile Include="GoodReads\GoodReadsSearch.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Movies\Annotater.cs" />
     <Compile Include="Movies\GenreMover.cs" />
@@ -108,6 +107,7 @@
     <Compile Include="Movies\Omb\OmdbResult.cs" />
     <Compile Include="Movies\Omb\OmdbSearch.cs" />
     <Compile Include="Movies\OscarTagger.cs" />
+    <Compile Include="Movies\RogerEbert\EbertQuery.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,7 +115,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="PrebuildScript.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>robocopy "$(ProjectDir)bin\$(ConfigurationName)" "$(ProjectDir)bin\$(ConfigurationName)2" *.* || exit /b 0
+echo robocopy "$(TargetDir)" "$(ProjectDir)bin\$(ConfigurationName)2" *.* 
+</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

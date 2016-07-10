@@ -1,7 +1,7 @@
 using System.Xml.Serialization;
 using AnnotateMovieDirectories.Configuration.Yaml;
 
-namespace AnnotateMovieDirectories.Configuration
+namespace AnnotateMovieDirectories.Configuration.Classes
 {
     public class MetaCritic:BaseConfig
     {

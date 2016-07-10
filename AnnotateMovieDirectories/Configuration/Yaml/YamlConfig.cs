@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AnnotateMovieDirectories.Configuration.Classes;
 using AnnotateMovieDirectories.Movies;
 using YamlDotNet.Serialization;
 

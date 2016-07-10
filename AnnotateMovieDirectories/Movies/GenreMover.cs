@@ -13,8 +13,8 @@ namespace AnnotateMovieDirectories.Movies
     {
         private static Dictionary<DirectoryInfo,List<string>> MoviesDict;
         public static Dictionary<string,DirectoryInfo> GenreToDirDict { get; set; }
-        private static bool On => Cfg.Config.GenreMoveOn;
-        private static bool Force => Cfg.Config.GenreMoveForce;
+        private static bool On => Settings.Config.GenreMoveOn;
+        private static bool Force => Settings.Config.GenreMoveForce;
         private static List<Movie> Movies { get; set; } 
         
 
@@ -24,7 +24,7 @@ namespace AnnotateMovieDirectories.Movies
             GenreToDirDict=new Dictionary<string, DirectoryInfo>();
             if (On)
             {
-                MoviesDict = Cfg.DownloadDir.EnumerateMovieInfoDirectories().ToDictionary(x=>x, GetGenresList);
+                MoviesDict = Settings.DownloadDir.EnumerateMovieInfoDirectories().ToDictionary(x=>x, GetGenresList);
                 Log($"Got {MoviesDict.Count} movies.");
                 MoveAllMovies();
             }
@@ -37,7 +37,7 @@ namespace AnnotateMovieDirectories.Movies
                 var dir = kv.Key;
                 var genres = kv.Value;
                 DirectoryInfo newDir;
-                if (Cfg.Config.MoveGenres.Contains(genres, out newDir))
+                if (Settings.Config.MoveGenres.Contains(genres, out newDir))
                 {
                     MoveMovie(newDir, dir);
                 }

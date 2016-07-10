@@ -31,7 +31,7 @@ namespace AnnotateMovieDirectories.Attributes
         public Rating(RatingType type)
         {
             Type = type;
-            Weight = Cfg.Config.GetWeight(type);
+            Weight = Settings.Config.GetWeight(type);
         }
         
         

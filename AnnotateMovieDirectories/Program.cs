@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AnnotateMovieDirectories.Configuration;
 using AnnotateMovieDirectories.Configuration.Yaml;
@@ -11,6 +13,9 @@ using AnnotateMovieDirectories.Extensions;
 using AnnotateMovieDirectories.Extensions.DirInfo;
 using AnnotateMovieDirectories.Logging;
 using AnnotateMovieDirectories.Movies;
+using AnnotateMovieDirectories.Movies.RogerEbert;
+using IpaExtensions.FileSystem;
+using IpaExtensions.Objects;
 using YamlDotNet.Serialization;
 
 namespace AnnotateMovieDirectories
@@ -21,6 +26,8 @@ namespace AnnotateMovieDirectories
         public const string BackupConfigPath = "Config.xml";
         private const string DownloadPath = @"C:\Users\Ty\Documents\Downloads\To Watch";
         private static readonly DirectoryInfo DownloadDir = new DirectoryInfo(DownloadPath);
+        private static Regex LogMediaRegex1 => new Regex(@"No new movies found and no movies moved");
+        private static Regex LogMediaRegex2 => new Regex(@"Wrote all \d+ movies \(\d+ new - \d+ moved\)");
 
         public static string ConfigPath { get; set; }
         public static Random Rand => new Random();
@@ -35,11 +42,94 @@ namespace AnnotateMovieDirectories
 
             if (!DeserializeConfig()) return -1;
             
-//            ConvertConfig();
-//            DeserializeYamlConfig();
-//            Console.ReadLine();
-//            return 0;
-            return Run();
+            int main = Run();
+            if (Settings.RunMediaLogger)
+            {
+                if (!RunMediaLogger()) return -1;
+            }
+            return main;
+        }
+
+        private static bool RunMediaLogger()
+        {
+            FileInfo exe = Settings.Config.LogMedia.Executable;
+            Log($"Run media logger is set to true. Running executable {exe.FullName}");
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                FileName = exe.FullName,
+                WorkingDirectory = exe.DirectoryName,
+                Verb = "runas",
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                RedirectStandardInput = true,
+                UseShellExecute = false
+            };
+            Log($"Starting process with start info:\n" +
+                $"\tFilename = {startInfo.FileName}\n" +
+                $"\tWorking Directory = {startInfo.WorkingDirectory}\n" +
+                $"\tVerb = {startInfo.Verb}\n" +
+                $"\t RedirectStandardOutput = {startInfo.RedirectStandardOutput}\n" +
+                $"\t RedirectStandardError = {startInfo.RedirectStandardError}\n" +
+                $"\t UseShellExecute = {startInfo.UseShellExecute}\n");
+            return HandleRunningProcess(startInfo, exe);
+        }
+
+        private static bool HandleRunningProcess(ProcessStartInfo startInfo, FileInfo exe)
+        {
+            string stdErr;
+            KillRunningProcs(exe);
+            if (!RunProcess(startInfo, exe, out stdErr)) return false;
+            return stdErr.IsNullOrWhitespace();
+        }
+
+        private static bool RunProcess(ProcessStartInfo startInfo, FileInfo exe, out string stdErr)
+        {
+            stdErr = string.Empty;
+            using (var proc = Process.Start(startInfo))
+            {
+                if (proc == null)
+                {
+                    Error($"Umm somehow process is null.");
+                    return false;
+                }
+                Log($"Started process");
+                Log($"{exe.Name} StdOut:");
+
+                stdErr = WaitForProcessCompletion(proc);
+            }
+            return true;
+        }
+
+        private static string WaitForProcessCompletion(Process proc)
+        {
+            while (!proc.StandardOutput.EndOfStream)
+            {
+                string line = proc.StandardOutput.ReadLine();
+                Console.WriteLine(line);
+                if (!line.IsNullOrWhitespace() && (LogMediaRegex1.IsMatch(line) || LogMediaRegex2.IsMatch(line)))
+                {
+                    Log("I think it is waiting for input - lets see");
+                    proc.StandardInput.WriteLine("yo");
+                }
+            }
+           string stdErr = proc.StandardError.ReadToEnd();
+            Log($"Process StdErr:");
+            Log(stdErr.IsNullOrWhitespace() ? "NULL" : stdErr);
+            proc.WaitForExit();
+            return stdErr;
+        }
+
+        private static void KillRunningProcs(FileInfo exe)
+        {
+            var runningProcs = Process.GetProcessesByName(exe.NameWithoutExt());
+            if (runningProcs.Any())
+            {
+                Log($"{runningProcs.Length} {exe.NameWithoutExt()} processes are already running. Kiling");
+                foreach (var proc in runningProcs)
+                {
+                    proc.Kill();
+                }
+            }
         }
 
         private static void DeserializeYamlConfig()
@@ -55,7 +145,7 @@ namespace AnnotateMovieDirectories
         private static void ConvertConfig()
         {
             Serializer ser = new Serializer();
-            var yaml = Cfg.Config.ConvertToYaml();
+            var yaml = Settings.Config.ConvertToYaml();
             Console.WriteLine(yaml);
 
             using (var writer = new StreamWriter("AnnotateConfig.yaml"))
@@ -66,29 +156,29 @@ namespace AnnotateMovieDirectories
 
         private static int Run()
         {
-            if (!Cfg.DownloadDirExists)
+            if (!Settings.DownloadDirExists)
             {
-                Error($"Specified download directory {Cfg.Config.Path} does not exist.");
+                Error($"Specified download directory {Settings.Config.Path} does not exist.");
                 Console.ReadLine();
                 return 1;
             }
 
-            if (Cfg.Config.Settings.Test)
+            if (Settings.Config.Settings.Test)
             {
                 CreateTestDir();
             }
-            if (Cfg.Config.AppendOscars)
+            if (Settings.Config.AppendOscars)
             {
-                var movies = Cfg.DownloadDir.EnumerateAnnotatedDirectories().Where(x => x.HasOscars()).ToList();
+               /* var movies = Settings.DownloadDir.EnumerateAnnotatedDirectories().Where(x => x.HasOscars()).ToList();
                 Log($"Got {movies.Count} movies with oscar wins.");
                 foreach (var movie in movies)
                 {
                     OscarTagger.AddOscarNotation(movie);
-                }
+                }*/
             }
-            if (Cfg.Config.ForceAppendGenre)
+            if (Settings.Config.ForceAppendGenre)
             {
-                var movies = Cfg.DownloadDir.EnumerateAnnotatedDirectories();
+                var movies = Settings.DownloadDir.EnumerateAnnotatedDirectories();
                 foreach (var dir in movies)
                 {
                     GenreTagger.AddGenreToDirectory(dir);
@@ -97,7 +187,7 @@ namespace AnnotateMovieDirectories
 
             Annotater.GetRatingsAndRename();
 
-            if (Cfg.Config.GenreMoveOn)
+            if (Settings.Config.GenreMoveOn)
             {
                 GenreMover.Move();
             }
@@ -120,7 +210,7 @@ namespace AnnotateMovieDirectories
                 Error($"Config does not exist at path {ConfigPath}.");
                 return false;
             }
-            Cfg.Deserialize(ConfigPath);
+            Settings.Deserialize(ConfigPath);
             return true;
         }
 

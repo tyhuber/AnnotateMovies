@@ -47,12 +47,12 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
 
         public static bool Skip(this DirectoryInfo dir)
         {
-            return Cfg.Config.IgnoreDirectory(dir) || dir.Checked();
+            return Settings.Config.IgnoreDirectory(dir) || dir.Checked();
         }
 
         public static bool Checked(this DirectoryInfo dir)
         {
-            if(!Cfg.Config.Settings.Rename)return dir.Name.Contains("IMDB") && DirRegex.ScoreRegex.IsMatch(dir.Name);
+            if(!Settings.Config.Settings.Rename)return dir.Name.Contains("IMDB") && DirRegex.ScoreRegex.IsMatch(dir.Name);
             return false;
         }
 

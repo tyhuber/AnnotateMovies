@@ -20,7 +20,7 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
             string dirName = dir.Name;
             if (DirRegex.ScoreRegex.IsMatch(dir.Name))
             {
-                if(!Cfg.Config.Settings.Rename)return;
+                if(!Settings.Config.Settings.Rename)return;
                 string score = DirRegex.ScoreRegex.Match(dirName).Groups["v"].Value;
                 dirName=dirName.Replace(score, string.Empty).Trim();
             }
@@ -86,7 +86,7 @@ namespace AnnotateMovieDirectories.Extensions.DirInfo
         {
             OmdbResult result;
             if (dir.IsTv()) return;
-            if (!Cfg.Config.Overwrite)
+            if (!Settings.Config.Overwrite)
             {
                 string infoFile = Path.Combine(dir.FullName, "MovieInfo.txt");
                 if (File.Exists(infoFile))

@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using AnnotateMovieDirectories.Logging;
 
-namespace AnnotateMovieDirectories.Configuration
+namespace AnnotateMovieDirectories.Configuration.Classes
 {
     public class GenreMove
     {

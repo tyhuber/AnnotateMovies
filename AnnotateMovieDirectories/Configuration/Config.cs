@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
+using AnnotateMovieDirectories.Configuration.Classes;
 using AnnotateMovieDirectories.Configuration.Yaml;
 using AnnotateMovieDirectories.Extensions;
 using AnnotateMovieDirectories.Logging;
@@ -22,13 +23,16 @@ namespace AnnotateMovieDirectories.Configuration
         [XmlIgnore]
         public bool Overwrite => Settings.OverwriteMovieInfo;
         [XmlElement]
-        public Settings Settings { get; set; }
+        public Classes.Settings Settings { get; set; }
         [XmlElement(IsNullable = true)]
         public Genre Genre { get; set; }
         [XmlArrayItem("Property")]
         public List<string> Top { get; set; }
         [XmlArrayItem("Property")]
         public List<string> Ignore { get; set; }
+
+        [XmlElement(IsNullable = true)]
+        public LogMediaConfig LogMedia { get; set; }
 
         [XmlAttribute]
         public RenameBy RenameBy { get; set; }
@@ -46,6 +50,9 @@ namespace AnnotateMovieDirectories.Configuration
 
         [XmlIgnore]
         public bool ForceAppendGenre => AppendGenre && Genre.Force;
+
+        [XmlIgnore]
+        public bool RunMediaLogger => LogMedia != null && LogMedia.Run && LogMedia.Exists;
 
 
         [XmlArray("Name")]
@@ -110,6 +117,8 @@ namespace AnnotateMovieDirectories.Configuration
                     return Settings.Weights.RtRating;
                 case RatingType.MetaCritic:
                     return Settings.Weights.MetaCritic;
+                case RatingType.Ebert:
+                    return Settings.Weights.Ebert;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
@@ -134,7 +143,8 @@ namespace AnnotateMovieDirectories.Configuration
         Imdb,
         RtFresh,
         RtRating,
-        MetaCritic
+        MetaCritic,
+        Ebert
     }
 
     public enum RenameBy
